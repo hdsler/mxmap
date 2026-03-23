@@ -10,7 +10,10 @@
     listPanel: document.querySelector("#track-list-panel"),
     details: document.querySelector("#track-details-content"),
     listToggle: document.querySelector("#list-toggle"),
+    locationButton: document.querySelector("#location-button"),
     statusBanner: document.querySelector("#status-banner"),
+    statusBannerText: document.querySelector("#status-banner-text"),
+    statusClose: document.querySelector("#status-close"),
   };
 
   const state = {
@@ -31,6 +34,8 @@
 
   async function init() {
     setupListToggle();
+    setupLocationButton();
+    setupStatusBanner();
     renderInitialDetails("Pasirinkite trasą");
     showStatus("Kraunami trasų duomenys...");
     initMap();
@@ -47,7 +52,6 @@
     hideStatus();
     renderTrackList();
     renderMarkers();
-    requestUserLocation();
   }
 
   function setupListToggle() {
@@ -76,6 +80,21 @@
       elements.listPanel.hidden = !nextExpanded;
       elements.listToggle.setAttribute("aria-expanded", String(nextExpanded));
       elements.listToggle.textContent = nextExpanded ? "Slėpti trasas" : "Rodyti trasas";
+    });
+  }
+
+  function setupLocationButton() {
+    elements.locationButton.addEventListener("click", () => {
+      requestUserLocation().catch((error) => {
+        console.error(error);
+        handleLocationFailure();
+      });
+    });
+  }
+
+  function setupStatusBanner() {
+    elements.statusClose.addEventListener("click", () => {
+      hideStatus();
     });
   }
 
@@ -163,7 +182,9 @@
       distance.setAttribute("data-testid", `track-distance-${track.id}`);
       distance.textContent = getDistanceLabel(track);
 
-      meta.appendChild(distance);
+      if (distance.textContent) {
+        meta.appendChild(distance);
+      }
 
       if (track.facebookUrl) {
         const facebookBadge = document.createElement("a");
@@ -185,11 +206,27 @@
     });
   }
 
-  function requestUserLocation() {
+  async function requestUserLocation() {
     if (!navigator.geolocation) {
+      elements.locationButton.textContent = "Vieta nepasiekiama";
+      elements.locationButton.disabled = true;
+      showStatus("Ši naršyklė nepalaiko vietos nustatymo.");
       renderTrackList();
       return;
     }
+
+    const permissionState = await getLocationPermissionState();
+
+    if (permissionState === "denied") {
+      elements.locationButton.disabled = false;
+      elements.locationButton.textContent = "Bandyti dar kartą";
+      showStatus("Vietos prieiga užblokuota. Leiskite ją naršyklės nustatymuose.");
+      return;
+    }
+
+    elements.locationButton.disabled = true;
+    elements.locationButton.textContent = "Nustatoma vieta...";
+    showStatus("Leiskite prieigą prie vietos, kad būtų parodytas atstumas.");
 
     navigator.geolocation.getCurrentPosition(
       (position) => {
@@ -205,10 +242,12 @@
 
         renderTrackList();
         updateListSelection();
+        elements.locationButton.disabled = false;
+        elements.locationButton.textContent = "Atnaujinti atstumą";
+        hideStatus();
       },
-      () => {
-        renderTrackList();
-        updateListSelection();
+      (error) => {
+        handleLocationFailure(error);
       },
       {
         enableHighAccuracy: false,
@@ -384,12 +423,12 @@
 
   function showStatus(message) {
     elements.statusBanner.hidden = false;
-    elements.statusBanner.textContent = message;
+    elements.statusBannerText.textContent = message;
   }
 
   function hideStatus() {
     elements.statusBanner.hidden = true;
-    elements.statusBanner.textContent = "";
+    elements.statusBannerText.textContent = "";
   }
 
   function buildNavigationUrl(track) {
@@ -407,7 +446,39 @@
       return `Atstumas: ${formatDistance(track.distanceKm)}`;
     }
 
-    return "Atstumas: nepasiekiamas";
+    return "";
+  }
+
+  async function getLocationPermissionState() {
+    if (!navigator.permissions || !navigator.permissions.query) {
+      return "unknown";
+    }
+
+    try {
+      const result = await navigator.permissions.query({ name: "geolocation" });
+      return result.state;
+    } catch (error) {
+      return "unknown";
+    }
+  }
+
+  function handleLocationFailure(error) {
+    renderTrackList();
+    updateListSelection();
+    elements.locationButton.disabled = false;
+    elements.locationButton.textContent = "Bandyti dar kartą";
+
+    if (error && error.code === 1) {
+      showStatus("Vietos prieiga užblokuota. Leiskite ją naršyklės nustatymuose.");
+      return;
+    }
+
+    if (error && error.code === 3) {
+      showStatus("Nepavyko nustatyti vietos. Bandykite dar kartą.");
+      return;
+    }
+
+    showStatus("Nepavyko nustatyti vietos. Bandykite dar kartą.");
   }
 
   function formatDistance(distanceKm) {

@@ -8,13 +8,14 @@ const testLocation = { latitude: 54.6872, longitude: 25.2797 };
 test("page loads and shows core sections", async ({ page }, testInfo) => {
   await page.goto("/");
 
-  await expect(page.getByRole("heading", { name: "Motokroso trasos Lietuvoje" })).toBeVisible();
   await expect(page.getByTestId("map")).toBeVisible();
+  await expect(page.getByTestId("location-button")).toHaveText("Rodyti atstumą");
 
   if (testInfo.project.name === "mobile-chromium") {
     await expect(page.getByTestId("mobile-list-toggle")).toBeVisible();
     await expect(page.getByTestId("track-list-panel")).toBeHidden();
   } else {
+    await expect(page.getByRole("heading", { name: "Motokrosų trasų sąrašas" })).toBeVisible();
     await expect(page.getByTestId("mobile-list-toggle")).toBeHidden();
     await expect(page.getByTestId("track-list")).toBeVisible();
   }
@@ -54,7 +55,10 @@ test("distance is shown in the list when location is available", async ({ page, 
     calculateDistanceKm(testLocation.latitude, testLocation.longitude, fullTrack.lat, fullTrack.lng)
   );
 
+  await expect(page.getByTestId(`track-distance-${fullTrack.id}`)).toHaveCount(0);
+  await page.getByTestId("location-button").click();
   await expect(page.getByTestId(`track-distance-${fullTrack.id}`)).toHaveText(`Atstumas: ${expectedDistance}`);
+  await expect(page.getByTestId("location-button")).toHaveText("Atnaujinti atstumą");
 });
 
 test("facebook link in the list is directly clickable", async ({ page }) => {

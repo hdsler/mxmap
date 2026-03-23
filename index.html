@@ -9,32 +9,35 @@
   </head>
   <body>
     <div class="app-shell">
-      <header class="page-header">
-        <div>
-          <p class="eyebrow">MXMAP</p>
-          <h1>Motokroso trasos Lietuvoje</h1>
-        </div>
-      </header>
-
       <main class="layout">
         <section class="map-panel" aria-label="Žemėlapis">
           <div class="map-frame">
-            <div id="status-banner" class="status-banner" data-testid="status-banner" hidden></div>
+            <div id="status-banner" class="status-banner" data-testid="status-banner" hidden>
+              <span id="status-banner-text"></span>
+              <button id="status-close" class="status-close" type="button" aria-label="Uždaryti pranešimą">
+                Uždaryti
+              </button>
+            </div>
             <div id="map" class="map" data-testid="map"></div>
           </div>
         </section>
 
         <aside class="sidebar">
-          <button
-            id="list-toggle"
-            class="list-toggle"
-            type="button"
-            data-testid="mobile-list-toggle"
-            aria-expanded="false"
-            aria-controls="track-list-panel"
-          >
-            Rodyti trasas
-          </button>
+          <div class="sidebar-toolbar">
+            <button id="location-button" class="location-button" type="button" data-testid="location-button">
+              Rodyti atstumą
+            </button>
+            <button
+              id="list-toggle"
+              class="list-toggle"
+              type="button"
+              data-testid="mobile-list-toggle"
+              aria-expanded="false"
+              aria-controls="track-list-panel"
+            >
+              Rodyti trasas
+            </button>
+          </div>
 
           <section
             id="track-list-panel"
@@ -43,7 +46,7 @@
             aria-label="Trasų sąrašas"
           >
             <div class="panel-header">
-              <h2>Trasų sąrašas</h2>
+              <h2>Motokrosų trasų sąrašas</h2>
             </div>
             <div id="track-list" class="track-list" data-testid="track-list"></div>
           </section>
