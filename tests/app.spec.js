@@ -3,6 +3,7 @@ const db = require("../db.json");
 
 const fullTrack = db.find((track) => track.id === "aleksandrijos");
 const missingTrack = db.find((track) => track.id === "babtai");
+const testLocation = { latitude: 54.6872, longitude: 25.2797 };
 
 test("page loads and shows core sections", async ({ page }, testInfo) => {
   await page.goto("/");
@@ -38,6 +39,35 @@ test("list selection updates details and navigation on desktop and mobile", asyn
     "href",
     new RegExp(`${fullTrack.lat},${fullTrack.lng}`)
   );
+});
+
+test("distance is shown in the list when location is available", async ({ page, context }) => {
+  await context.grantPermissions(["geolocation"], { origin: "http://127.0.0.1:4173" });
+  await context.setGeolocation(testLocation);
+  await page.goto("/");
+
+  if (page.viewportSize().width < 900) {
+    await page.getByTestId("mobile-list-toggle").click();
+  }
+
+  const expectedDistance = formatDistance(
+    calculateDistanceKm(testLocation.latitude, testLocation.longitude, fullTrack.lat, fullTrack.lng)
+  );
+
+  await expect(page.getByTestId(`track-distance-${fullTrack.id}`)).toHaveText(`Atstumas: ${expectedDistance}`);
+});
+
+test("facebook link in the list is directly clickable", async ({ page }) => {
+  await page.goto("/");
+
+  if (page.viewportSize().width < 900) {
+    await page.getByTestId("mobile-list-toggle").click();
+  }
+
+  const facebookLink = page.getByTestId(`track-facebook-${fullTrack.id}`);
+
+  await expect(facebookLink).toHaveAttribute("href", fullTrack.facebookUrl);
+  await expect(page.getByText("Pasirinkite trasą")).toBeVisible();
 });
 
 test("marker selection updates details", async ({ page }) => {
@@ -79,3 +109,30 @@ test("mobile list toggle expands and collapses list panel", async ({ page }, tes
   await expect(panel).toBeHidden();
   await expect(toggle).toHaveText("Rodyti trasas");
 });
+
+function calculateDistanceKm(lat1, lng1, lat2, lng2) {
+  const earthRadiusKm = 6371;
+  const dLat = toRadians(lat2 - lat1);
+  const dLng = toRadians(lng2 - lng1);
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(toRadians(lat1)) *
+      Math.cos(toRadians(lat2)) *
+      Math.sin(dLng / 2) *
+      Math.sin(dLng / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+  return earthRadiusKm * c;
+}
+
+function toRadians(value) {
+  return (value * Math.PI) / 180;
+}
+
+function formatDistance(distanceKm) {
+  if (distanceKm < 10) {
+    return `${distanceKm.toFixed(1)} km`;
+  }
+
+  return `${Math.round(distanceKm)} km`;
+}

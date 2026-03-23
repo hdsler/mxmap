@@ -211,6 +211,35 @@ input {
   line-height: 1.35;
 }
 
+.track-list-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.track-list-distance,
+.track-list-facebook {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.track-list-distance {
+  background: rgba(47, 143, 131, 0.12);
+  color: #1f6f66;
+}
+
+.track-list-facebook {
+  background: #e8f0ff;
+  color: #20458f;
+}
+
 .details-content {
   display: grid;
   gap: 14px;
@@ -249,6 +278,7 @@ input {
   text-decoration-thickness: 2px;
 }
 
+.facebook-button,
 .navigate-button {
   display: inline-flex;
   align-items: center;
@@ -256,12 +286,34 @@ input {
   min-height: 52px;
   padding: 14px 18px;
   border-radius: 16px;
-  background: linear-gradient(135deg, var(--accent) 0%, #d6672e 100%);
   color: #fffdf9;
   font-weight: 700;
   text-decoration: none;
-  box-shadow: 0 18px 26px rgba(178, 74, 29, 0.24);
   transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+
+.facebook-button {
+  width: 100%;
+  background: linear-gradient(135deg, #2d5bba 0%, #3f78ec 100%);
+  box-shadow: 0 18px 26px rgba(48, 93, 187, 0.24);
+}
+
+.facebook-button:hover,
+.facebook-button:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 22px 30px rgba(48, 93, 187, 0.28);
+  filter: saturate(1.05);
+  outline: none;
+}
+
+.actions-row {
+  display: grid;
+  gap: 12px;
+}
+
+.navigate-button {
+  background: linear-gradient(135deg, var(--accent) 0%, #d6672e 100%);
+  box-shadow: 0 18px 26px rgba(178, 74, 29, 0.24);
 }
 
 .navigate-button:hover,

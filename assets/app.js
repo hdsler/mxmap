@@ -17,6 +17,7 @@
     map: null,
     tracks: [],
     selectedTrackId: null,
+    userLocation: null,
     markersById: new Map(),
     iconsById: new Map(),
   };
@@ -46,6 +47,7 @@
     hideStatus();
     renderTrackList();
     renderMarkers();
+    requestUserLocation();
   }
 
   function setupListToggle() {
@@ -121,6 +123,7 @@
       address: typeof track.address === "string" && track.address.trim() ? track.address.trim() : "Adreso nėra",
       lat: track.lat,
       lng: track.lng,
+      distanceKm: null,
       facebookUrl: typeof track.facebookUrl === "string" && track.facebookUrl.trim() ? track.facebookUrl.trim() : null,
       contactName:
         track.contact && typeof track.contact.name === "string" && track.contact.name.trim()
@@ -152,10 +155,67 @@
       address.className = "track-list-address";
       address.textContent = track.address;
 
-      button.append(name, address);
+      const meta = document.createElement("div");
+      meta.className = "track-list-meta";
+
+      const distance = document.createElement("span");
+      distance.className = "track-list-distance";
+      distance.setAttribute("data-testid", `track-distance-${track.id}`);
+      distance.textContent = getDistanceLabel(track);
+
+      meta.appendChild(distance);
+
+      if (track.facebookUrl) {
+        const facebookBadge = document.createElement("a");
+        facebookBadge.className = "track-list-facebook";
+        facebookBadge.href = track.facebookUrl;
+        facebookBadge.target = "_blank";
+        facebookBadge.rel = "noreferrer";
+        facebookBadge.textContent = "Facebook grupė";
+        facebookBadge.setAttribute("data-testid", `track-facebook-${track.id}`);
+        facebookBadge.addEventListener("click", (event) => {
+          event.stopPropagation();
+        });
+        meta.appendChild(facebookBadge);
+      }
+
+      button.append(name, address, meta);
       button.addEventListener("click", () => selectTrack(track.id, { source: "list" }));
       elements.list.appendChild(button);
     });
+  }
+
+  function requestUserLocation() {
+    if (!navigator.geolocation) {
+      renderTrackList();
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        state.userLocation = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        };
+
+        state.tracks = state.tracks.map((track) => ({
+          ...track,
+          distanceKm: calculateDistanceKm(state.userLocation.lat, state.userLocation.lng, track.lat, track.lng),
+        }));
+
+        renderTrackList();
+        updateListSelection();
+      },
+      () => {
+        renderTrackList();
+        updateListSelection();
+      },
+      {
+        enableHighAccuracy: false,
+        timeout: 5000,
+        maximumAge: 300000,
+      }
+    );
   }
 
   function renderMarkers() {
@@ -264,7 +324,7 @@
   function renderTrackDetails(track) {
     const navigateUrl = buildNavigationUrl(track);
     const facebookMarkup = track.facebookUrl
-      ? `<a class="detail-link" data-testid="track-facebook-link" href="${escapeAttribute(
+      ? `<a class="facebook-button" data-testid="track-facebook-link" href="${escapeAttribute(
           track.facebookUrl
         )}" target="_blank" rel="noreferrer">Atidaryti grupę</a>`
       : `<p class="detail-value" data-testid="track-facebook-link">Facebook nuorodos nėra</p>`;
@@ -300,15 +360,17 @@
         <span class="detail-label">Facebook grupė</span>
         ${facebookMarkup}
       </div>
-      <a
-        class="navigate-button"
-        data-testid="navigate-button"
-        href="${escapeAttribute(navigateUrl)}"
-        target="_blank"
-        rel="noreferrer"
-      >
-        Vykti
-      </a>
+      <div class="actions-row">
+        <a
+          class="navigate-button"
+          data-testid="navigate-button"
+          href="${escapeAttribute(navigateUrl)}"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Vykti
+        </a>
+      </div>
     `;
   }
 
@@ -338,6 +400,41 @@
     }
 
     return `https://www.google.com/maps/search/?api=1&query=${track.lat},${track.lng}`;
+  }
+
+  function getDistanceLabel(track) {
+    if (typeof track.distanceKm === "number") {
+      return `Atstumas: ${formatDistance(track.distanceKm)}`;
+    }
+
+    return "Atstumas: nepasiekiamas";
+  }
+
+  function formatDistance(distanceKm) {
+    if (distanceKm < 10) {
+      return `${distanceKm.toFixed(1)} km`;
+    }
+
+    return `${Math.round(distanceKm)} km`;
+  }
+
+  function calculateDistanceKm(lat1, lng1, lat2, lng2) {
+    const earthRadiusKm = 6371;
+    const dLat = toRadians(lat2 - lat1);
+    const dLng = toRadians(lng2 - lng1);
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(toRadians(lat1)) *
+        Math.cos(toRadians(lat2)) *
+        Math.sin(dLng / 2) *
+        Math.sin(dLng / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+    return earthRadiusKm * c;
+  }
+
+  function toRadians(value) {
+    return (value * Math.PI) / 180;
   }
 
   function isAppleDevice() {
