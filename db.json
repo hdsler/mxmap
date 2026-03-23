@@ -1,0 +1,290 @@
+[
+  {
+    "id": "aleksandrijos",
+    "name": "Aleksandrijos motokroso trasa",
+    "locationName": "Aleksandrija, Šiauliai",
+    "address": "V. Matulionio g. 7, Aleksandrija, 76271 Šiaulių m. sav.",
+    "lat": 55.924459,
+    "lng": 23.366489,
+    "trackCategory": "čempionatinė",
+    "contact": {
+      "name": "Rimvidas Daunys",
+      "phone": "+37068685100",
+      "email": "sauliaimx@gmail.com"
+    },
+    "facebookUrl": "https://www.facebook.com/groups/830647771162002/"
+  },
+  {
+    "id": "aliai",
+    "name": "Alių motokroso trasa",
+    "locationName": "Aliai, Utenos r.",
+    "address": "Aliai, Utenos r.",
+    "lat": 55.482076,
+    "lng": 25.727026,
+    "trackCategory": "čempionatinė",
+    "contact": {
+      "name": "Nerijus Šeduikis",
+      "phone": "+37068626320",
+      "email": "nerijus@porteris.com"
+    },
+    "facebookUrl": null
+  },
+  {
+    "id": "zemaitija",
+    "name": "Automoto sporto kompleksas „Žemaitija“",
+    "locationName": "Plungės r.",
+    "address": "Motokroso g. 8, Pauošnių k, Plungės r.",
+    "lat": 55.974971,
+    "lng": 21.924209,
+    "trackCategory": "varžybinė",
+    "contact": {
+      "name": "Saulius Stankus",
+      "phone": "+37069887028",
+      "email": "sauliaus511@gmail.com"
+    },
+    "facebookUrl": null
+  },
+  {
+    "id": "babtai",
+    "name": "Babtų motokroso trasa",
+    "locationName": "Kauno r.",
+    "address": "Miško g., Pagynė, Kauno r. sav.",
+    "lat": 55.118992,
+    "lng": 23.795161,
+    "trackCategory": null,
+    "contact": null,
+    "facebookUrl": null
+  },
+  {
+    "id": "berciunai",
+    "name": "Berčiūnų motokroso trasa",
+    "locationName": "Panevėžio r.",
+    "address": "Berčiūnai, Panevėžio r.",
+    "lat": 55.728327,
+    "lng": 24.226733,
+    "trackCategory": "varžybinė",
+    "contact": {
+      "name": "Žygimantas Bartusevičius",
+      "phone": "+37065640436",
+      "email": "zygis78@gmail.com"
+    },
+    "facebookUrl": null
+  },
+  {
+    "id": "birzai",
+    "name": "Biržų motokroso trasa",
+    "locationName": "Biržai",
+    "address": "Perkūno aklg. 2, Biržai",
+    "lat": 56.172866,
+    "lng": 24.766779,
+    "trackCategory": "čempionatinė",
+    "contact": {
+      "name": "Tadas Špokas",
+      "phone": "+37069955620",
+      "email": "spokastadas@gmail.com"
+    },
+    "facebookUrl": "https://www.facebook.com/birzmoto"
+  },
+  {
+    "id": "dubysa",
+    "name": "Dubysos motokroso trasa",
+    "locationName": "Kelmės r.",
+    "address": "Laugalys, Kelmės r. sav.",
+    "lat": 55.586741,
+    "lng": 23.066213,
+    "trackCategory": "varžybinė",
+    "contact": {
+      "name": "Gintautas Kaušius",
+      "phone": "+37061295754",
+      "email": "info@justudija.lt"
+    },
+    "facebookUrl": "https://www.facebook.com/groups/904379336322799"
+  },
+  {
+    "id": "jiestrakis",
+    "name": "Jiestrakio motokroso trasa",
+    "locationName": "Prienų r.",
+    "address": "Prienų r., Jiestrakis",
+    "lat": 54.630261,
+    "lng": 23.676458,
+    "trackCategory": null,
+    "contact": null,
+    "facebookUrl": null
+  },
+  {
+    "id": "kalvarija",
+    "name": "Kalvarijos motokroso trasa",
+    "locationName": "Marijampolės r.",
+    "address": "Kalvarija, Marijampolės r.",
+    "lat": 54.396575,
+    "lng": 23.224573,
+    "trackCategory": "varžybinė",
+    "contact": {
+      "name": "Kęstutis Šiupšinskas",
+      "phone": "+37068227808",
+      "email": null
+    },
+    "facebookUrl": null
+  },
+  {
+    "id": "kampai",
+    "name": "Kampai motokroso trasa",
+    "locationName": "Kėdainių r.",
+    "address": "Bajėnai, Kėdainių r.",
+    "lat": 55.171175,
+    "lng": 23.823246,
+    "trackCategory": null,
+    "contact": {
+      "name": "Vaidotas Vilimas",
+      "phone": "+37069872568",
+      "email": "vilimasvaidotas@gmail.com"
+    },
+    "facebookUrl": "https://www.facebook.com/groups/1927956627486211"
+  },
+  {
+    "id": "kvedarna",
+    "name": "Kvėdarnos motokroso trasa",
+    "locationName": "Šilalės r.",
+    "address": "Šilalės r.",
+    "lat": 55.569139,
+    "lng": 22.056998,
+    "trackCategory": null,
+    "contact": {
+      "name": "Nerimantas Jucius",
+      "phone": "+37066282258",
+      "email": null
+    },
+    "facebookUrl": "https://www.facebook.com/groups/1698571127081579/"
+  },
+  {
+    "id": "manto",
+    "name": "Manto trasa (MX track)",
+    "locationName": "Elektrėnų r.",
+    "address": "Gabriliava, Elektrėnų r.",
+    "lat": 54.809636,
+    "lng": 24.678466,
+    "trackCategory": null,
+    "contact": {
+      "name": null,
+      "phone": "+37067371596",
+      "email": null
+    },
+    "facebookUrl": null
+  },
+  {
+    "id": "mickunai",
+    "name": "Mickūnai MX parkas",
+    "locationName": "Anykščių r.",
+    "address": "Mickūnų k. 17, Anykščių r.",
+    "lat": 55.635088,
+    "lng": 25.288686,
+    "trackCategory": "čempionatinė",
+    "contact": {
+      "name": "Nerijus Jasiukonis",
+      "phone": "+37060370418",
+      "email": null
+    },
+    "facebookUrl": "https://www.facebook.com/profile.php?id=100059933895510"
+  },
+  {
+    "id": "motoroki",
+    "name": "Moto-Roki motociklų kroso trasa",
+    "locationName": "Rokiškio r.",
+    "address": "Rokiškio r.",
+    "lat": 55.974757,
+    "lng": 25.52877,
+    "trackCategory": "čempionatinė",
+    "contact": {
+      "name": "Mantas Kišūnas",
+      "phone": "+3706247047",
+      "email": null
+    },
+    "facebookUrl": "https://www.facebook.com/groups/552789962186913"
+  },
+  {
+    "id": "panevezys",
+    "name": "Panevėžio motokroso trasa",
+    "locationName": "Panevėžys",
+    "address": "J. Janonio g. 33, Panevėžys",
+    "lat": 55.734868,
+    "lng": 24.30149,
+    "trackCategory": "varžybinė",
+    "contact": {
+      "name": "Almantas Stepukas",
+      "phone": "+37062653400",
+      "email": "almis_moto@yahoo.com"
+    },
+    "facebookUrl": null
+  },
+  {
+    "id": "petrašiūnai",
+    "name": "Petrašiūnų motokroso trasa",
+    "locationName": "Pakruojo r.",
+    "address": "Petrašiūnai, Pakruojo r.",
+    "lat": 56.017082,
+    "lng": 23.920991,
+    "trackCategory": "čempionatinė",
+    "contact": {
+      "name": "Egidijus Šiaučiūnas",
+      "phone": "+37065044586",
+      "email": "motokrosas@robusta.lt"
+    },
+    "facebookUrl": null
+  },
+  {
+    "id": "rietavas",
+    "name": "Rietavo motokroso trasa",
+    "locationName": "Rietavo r.",
+    "address": "Lioliai, Rietavo r.",
+    "lat": 55.744061,
+    "lng": 21.878359,
+    "trackCategory": null,
+    "contact": {
+      "name": "Eimantas Budreckis",
+      "phone": "+37061142003",
+      "email": null
+    },
+    "facebookUrl": "https://www.facebook.com/groups/2788459718046229/"
+  },
+  {
+    "id": "saduniskes",
+    "name": "Sadūniškių motoparkas",
+    "locationName": "Vilniaus r.",
+    "address": "Rugių g 22, 13145, Sadūniškės, Vilniaus r. sav.",
+    "lat": 54.646663,
+    "lng": 25.549186,
+    "trackCategory": null,
+    "contact": null,
+    "facebookUrl": "https://www.facebook.com/groups/358414681839538/"
+  },
+  {
+    "id": "vidugiriai",
+    "name": "Vidugirių motokroso trasa",
+    "locationName": "Anykščių r.",
+    "address": "Rukiškis, Anykščių r.",
+    "lat": 55.648311,
+    "lng": 24.733601,
+    "trackCategory": null,
+    "contact": {
+      "name": "Audrius Razminas",
+      "phone": null,
+      "email": null
+    },
+    "facebookUrl": "https://www.facebook.com/groups/967948160945026/"
+  },
+  {
+    "id": "zokniai",
+    "name": "Zoknių motokroso trasa",
+    "locationName": "Šiauliai",
+    "address": "Pročiūnų g 96, Šiauliai",
+    "lat": 55.886887,
+    "lng": 23.416377,
+    "trackCategory": null,
+    "contact": {
+      "name": "Rytis Garbačiauskas",
+      "phone": null,
+      "email": null
+    },
+    "facebookUrl": "https://www.facebook.com/groups/1865805743704790/"
+  }
+]
