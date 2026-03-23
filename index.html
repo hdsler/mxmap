@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="lt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Motokroso trasos Lietuvoje</title>
+    <link rel="stylesheet" href="./node_modules/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="./assets/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="page-header">
+        <div>
+          <p class="eyebrow">MXMAP</p>
+          <h1>Motokroso trasos Lietuvoje</h1>
+        </div>
+      </header>
+
+      <main class="layout">
+        <section class="map-panel" aria-label="Žemėlapis">
+          <div class="map-frame">
+            <div id="status-banner" class="status-banner" data-testid="status-banner" hidden></div>
+            <div id="map" class="map" data-testid="map"></div>
+          </div>
+        </section>
+
+        <aside class="sidebar">
+          <button
+            id="list-toggle"
+            class="list-toggle"
+            type="button"
+            data-testid="mobile-list-toggle"
+            aria-expanded="false"
+            aria-controls="track-list-panel"
+          >
+            Rodyti trasas
+          </button>
+
+          <section
+            id="track-list-panel"
+            class="track-list-panel"
+            data-testid="track-list-panel"
+            aria-label="Trasų sąrašas"
+          >
+            <div class="panel-header">
+              <h2>Trasų sąrašas</h2>
+            </div>
+            <div id="track-list" class="track-list" data-testid="track-list"></div>
+          </section>
+
+          <section class="details-panel" data-testid="track-details" aria-live="polite">
+            <div class="panel-header">
+              <h2>Trasos informacija</h2>
+            </div>
+            <div id="track-details-content" class="details-content">
+              <p class="placeholder">Pasirinkite trasą</p>
+            </div>
+          </section>
+        </aside>
+      </main>
+    </div>
+
+    <script src="./node_modules/leaflet/dist/leaflet.js"></script>
+    <script src="./assets/app.js"></script>
+  </body>
+</html>
