@@ -116,6 +116,10 @@ The application must be mobile-first and simple to use.
 - Details shown below the map/list after a track is selected
 - Main action button must remain easy to tap
 
+### Responsive breakpoint
+- Mobile layout applies below `900px`
+- Desktop layout applies at `900px` and above
+
 The page should avoid clutter and keep the primary flow obvious.
 
 ---
@@ -136,6 +140,11 @@ The same selected track state must drive:
 - details panel content
 - external navigation button
 
+### Initial state
+- No track is selected when the page first loads
+- The details panel should show `Pasirinkite trasą`
+- The map should still display all available tracks immediately
+
 ---
 
 ## 8. Map Requirements
@@ -146,10 +155,21 @@ The map should be implemented with:
 
 Map behavior:
 - Default center on Lithuania
+- Default zoom should show the full country comfortably
 - Render one marker per track
 - Clicking a marker selects the track
 - Selected marker updates the details panel
 - Selected marker syncs with the selected list item
+- Selecting a track from the list should center the map on that track
+- Selecting a track may increase zoom slightly for clarity, but should not zoom excessively
+
+Suggested default map settings:
+- Center: `55.1694, 23.8813`
+- Zoom: `7`
+
+### Marker state
+- The selected marker must be visually distinct from unselected markers
+- The selection style can remain simple as long as it is clearly visible
 
 ---
 
@@ -162,6 +182,8 @@ List behavior:
 - Clicking a list item selects the track
 - Selection recenters the map to the selected marker
 - Selected item is visually highlighted
+- Each list item should show the track name
+- Each list item should show a short secondary line using the address when available
 
 ### Desktop
 - List is always visible
@@ -202,6 +224,11 @@ Behavior:
 - Opens Google Maps on other devices
 - Must work when a track is selected from either the map or the list
 
+Deterministic navigation rule:
+- On Apple devices, use Apple Maps URL format
+- On non-Apple devices, use Google Maps URL format
+- If device detection is uncertain, fall back to Google Maps
+
 Expected result:
 - User can tap `Vykti` and immediately open navigation to the selected track
 
@@ -214,6 +241,8 @@ The frontend should:
 - Validate required fields needed for rendering
 - Normalize nullable values for UI safety
 - Avoid breaking when optional values are missing
+- Ignore invalid records that do not contain usable map coordinates
+- Continue rendering valid records even if some entries are incomplete
 
 Required for map rendering:
 - `id`
@@ -225,6 +254,11 @@ Required for details:
 - `address` may be absent but should still render gracefully
 - `facebookUrl` may be absent
 - `contact` may be absent
+
+### Loading and error states
+- While loading data, the UI should show a simple Lithuanian loading state
+- If `db.json` fails to load, the UI should show a simple Lithuanian error message
+- If no valid tracks are available after parsing, the UI should show a simple Lithuanian empty state
 
 ---
 
@@ -253,6 +287,18 @@ Technology choices:
 
 No framework is required.
 
+### Browser support target
+- Latest Chrome on desktop
+- Latest Safari on desktop
+- Latest Chrome on Android
+- Latest Safari on iPhone
+
+### Accessibility baseline
+- Interactive elements must be keyboard reachable
+- Buttons and links must have clear visible labels
+- Tap targets should be large enough for mobile use
+- Text contrast should remain readable in daylight/mobile conditions
+
 ---
 
 ## 15. Build Phases
@@ -276,11 +322,70 @@ No framework is required.
 ### Phase 4
 - Responsive polish
 - Accessibility and tap target improvements
-- Final testing on mobile and desktop
+- Add local automated UI tests
 
 ---
 
-## 16. Success Criteria
+## 16. Local Automated Testing
+
+The initial testing approach should be:
+- Automated
+- Local only
+- No CI in the first phase
+
+Recommended tool:
+- Playwright
+
+Test execution model:
+- Run the SPA through a local static server
+- Run Playwright against the local URL
+- Test both desktop and mobile-sized viewports
+
+The app should not rely on opening `index.html` directly from the file system during tests.
+
+### Test coverage for the initial phase
+
+Automated local UI tests should cover:
+- Page loads successfully
+- Map container renders
+- Track list renders data from `db.json`
+- Clicking a track in the list updates the details panel
+- Clicking a marker updates the details panel
+- Selected track stays synchronized between map, list, and details
+- `Vykti` button is generated for the selected track
+- Missing contact or Facebook data shows Lithuanian fallback text
+- Mobile track list toggle works
+
+### Testability requirements
+
+To support reliable UI testing, the application should include stable selectors such as `data-testid` for:
+- Map container
+- Track list
+- Track list item
+- Details panel
+- Contact name
+- Phone link
+- Facebook link
+- Navigation button
+- Mobile list toggle
+
+### Local testing workflow
+
+Suggested local workflow:
+1. Start a local static server
+2. Open the SPA at a local URL
+3. Run Playwright tests against that local URL
+
+Expected local command flow after setup:
+- Install dependencies
+- Start the local server
+- Run Playwright tests locally
+
+The goal is to have repeatable local UI checks without introducing CI or deployment automation yet.
+
+---
+
+## 17. Success Criteria
 
 The PoC is successful if:
 - All tracks from `db.json` appear on the map
@@ -288,3 +393,4 @@ The PoC is successful if:
 - User can see the required track details
 - User can tap `Vykti` and open external navigation
 - The experience is simple and usable on both mobile and desktop
+- Local automated UI tests cover the main interaction flow
