@@ -2,12 +2,14 @@
   --bg: #f5f1e8;
   --panel: rgba(255, 252, 245, 0.92);
   --panel-strong: #fffaf0;
+  --panel-tint: rgba(255, 244, 230, 0.82);
   --line: #d4c9b2;
   --text: #1f1b16;
   --muted: #6d6256;
   --accent: #b24a1d;
   --accent-dark: #7f3413;
   --accent-soft: #f2d4b8;
+  --accent-contrast: #2f8f83;
   --shadow: 0 18px 40px rgba(72, 43, 18, 0.12);
   --radius: 20px;
 }
@@ -29,6 +31,7 @@ body {
 
 body {
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 button,
@@ -45,6 +48,8 @@ input {
 
 .page-header {
   margin-bottom: 16px;
+  padding: 6px 4px 10px;
+  animation: rise-in 0.5s ease;
 }
 
 .page-header h1 {
@@ -64,6 +69,7 @@ input {
 .layout {
   display: grid;
   gap: 16px;
+  animation: fade-in 0.45s ease;
 }
 
 .map-panel,
@@ -74,6 +80,19 @@ input {
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   backdrop-filter: blur(14px);
+  position: relative;
+  overflow: hidden;
+}
+
+.map-panel::before,
+.track-list-panel::before,
+.details-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(178, 74, 29, 0.28) 50%, transparent 100%);
+  pointer-events: none;
 }
 
 .map-frame {
@@ -85,6 +104,7 @@ input {
   border-radius: 16px;
   overflow: hidden;
   background: #ddd6c6;
+  transform: translateZ(0);
 }
 
 .status-banner {
@@ -94,6 +114,7 @@ input {
   background: #fdf0e6;
   color: var(--accent-dark);
   font-weight: 600;
+  animation: fade-in 0.3s ease;
 }
 
 .sidebar {
@@ -113,6 +134,14 @@ input {
   color: #fff9f3;
   font-weight: 700;
   box-shadow: var(--shadow);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.list-toggle:hover,
+.list-toggle:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 20px 34px rgba(72, 43, 18, 0.18);
+  outline: none;
 }
 
 .track-list-panel,
@@ -122,6 +151,8 @@ input {
 
 .panel-header {
   margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(120, 92, 60, 0.12);
 }
 
 .panel-header h2 {
@@ -132,30 +163,39 @@ input {
 .track-list {
   display: grid;
   gap: 10px;
+  scroll-behavior: smooth;
 }
 
 .track-list-item {
   width: 100%;
   padding: 14px;
-  border: 1px solid transparent;
+  border: 1px solid rgba(178, 74, 29, 0.06);
   border-radius: 16px;
-  background: var(--panel-strong);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 248, 238, 0.96) 100%);
   color: var(--text);
   text-align: left;
   cursor: pointer;
-  transition: transform 0.16s ease, border-color 0.16s ease, background 0.16s ease;
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    background 0.18s ease,
+    box-shadow 0.18s ease;
 }
 
 .track-list-item:hover,
 .track-list-item:focus-visible {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
   border-color: var(--accent-soft);
+  box-shadow: 0 14px 28px rgba(72, 43, 18, 0.08);
   outline: none;
 }
 
 .track-list-item.is-selected {
   border-color: var(--accent);
-  background: #fff1e6;
+  background:
+    linear-gradient(180deg, rgba(255, 242, 229, 0.98) 0%, rgba(255, 232, 214, 0.98) 100%);
+  box-shadow: inset 4px 0 0 var(--accent), 0 18px 28px rgba(178, 74, 29, 0.1);
 }
 
 .track-list-name {
@@ -174,6 +214,7 @@ input {
 .details-content {
   display: grid;
   gap: 14px;
+  padding-right: 4px;
 }
 
 .placeholder {
@@ -184,6 +225,10 @@ input {
 .detail-group {
   display: grid;
   gap: 6px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, var(--panel-tint) 0%, rgba(255, 250, 241, 0.9) 100%);
+  border: 1px solid rgba(120, 92, 60, 0.08);
 }
 
 .detail-label {
@@ -215,6 +260,16 @@ input {
   color: #fffdf9;
   font-weight: 700;
   text-decoration: none;
+  box-shadow: 0 18px 26px rgba(178, 74, 29, 0.24);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+
+.navigate-button:hover,
+.navigate-button:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 22px 30px rgba(178, 74, 29, 0.28);
+  filter: saturate(1.05);
+  outline: none;
 }
 
 .track-marker {
@@ -224,11 +279,13 @@ input {
   border-radius: 999px;
   background: var(--accent);
   box-shadow: 0 0 0 4px rgba(178, 74, 29, 0.18);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
 }
 
 .track-marker.is-selected {
-  background: #2f8f83;
+  background: var(--accent-contrast);
   box-shadow: 0 0 0 6px rgba(47, 143, 131, 0.24);
+  transform: scale(1.12);
 }
 
 .leaflet-div-icon {
@@ -262,15 +319,19 @@ input {
   .sidebar {
     position: sticky;
     top: 20px;
-    max-height: calc(100vh - 40px);
+    height: calc(100vh - 40px);
+    grid-template-rows: minmax(0, 1fr) minmax(0, 0.9fr);
+    overflow: hidden;
   }
 
   .track-list-panel {
     display: block !important;
+    min-height: 0;
   }
 
   .track-list {
-    max-height: 42vh;
+    max-height: none;
+    height: 100%;
     overflow: auto;
     padding-right: 4px;
   }
@@ -280,6 +341,35 @@ input {
   }
 
   .details-panel {
-    min-height: 260px;
+    min-height: 0;
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+
+  .details-content {
+    min-height: 0;
+    overflow: auto;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

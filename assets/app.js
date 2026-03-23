@@ -195,6 +195,7 @@
     updateListSelection();
     updateMarkerSelection();
     renderTrackDetails(track);
+    scrollSelectedTrackIntoView(options.source);
 
     const marker = state.markersById.get(trackId);
     if (marker) {
@@ -221,6 +222,22 @@
       const selected = item.dataset.trackId === state.selectedTrackId;
       item.classList.toggle("is-selected", selected);
       item.setAttribute("aria-pressed", String(selected));
+    });
+  }
+
+  function scrollSelectedTrackIntoView(source) {
+    const selectedItem = elements.list.querySelector(`[data-track-id="${state.selectedTrackId}"]`);
+
+    if (!selectedItem) {
+      return;
+    }
+
+    window.requestAnimationFrame(() => {
+      selectedItem.scrollIntoView({
+        behavior: source === "list" ? "smooth" : "smooth",
+        block: "nearest",
+        inline: "nearest",
+      });
     });
   }
 
