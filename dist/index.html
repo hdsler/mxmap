@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="lt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Motokroso trasos Lietuvoje</title>
+    <link rel="stylesheet" href="./assets/leaflet/leaflet.css" />
+    <link rel="stylesheet" href="./assets/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <main class="layout">
+        <section class="map-panel" aria-label="Žemėlapis">
+          <div class="map-frame">
+            <div id="status-banner" class="status-banner" data-testid="status-banner" hidden>
+              <span id="status-banner-text"></span>
+              <button id="status-close" class="status-close" type="button" aria-label="Uždaryti pranešimą">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div id="map" class="map" data-testid="map"></div>
+          </div>
+        </section>
+
+        <aside class="sidebar">
+          <div class="sidebar-toolbar">
+            <div id="location-action" class="location-action" data-testid="location-action">
+              <button id="location-button" class="location-button" type="button" data-testid="location-button">
+                Rodyti atstumą
+              </button>
+              <button
+                id="location-dismiss"
+                class="location-dismiss"
+                type="button"
+                data-testid="location-dismiss"
+                aria-label="Uždaryti atstumo mygtuką"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <button
+              id="list-toggle"
+              class="list-toggle"
+              type="button"
+              data-testid="mobile-list-toggle"
+              aria-expanded="false"
+              aria-controls="track-list-panel"
+            >
+              Rodyti trasas
+            </button>
+          </div>
+
+          <section class="details-panel" data-testid="track-details" aria-live="polite">
+            <div class="panel-header">
+              <h2>Trasos informacija</h2>
+            </div>
+            <div id="track-details-content" class="details-content">
+              <p class="placeholder">Pasirinkite trasą</p>
+            </div>
+          </section>
+
+          <section
+            id="track-list-panel"
+            class="track-list-panel"
+            data-testid="track-list-panel"
+            aria-label="Trasų sąrašas"
+          >
+            <div class="panel-header">
+              <h2>Motokrosų trasų sąrašas</h2>
+            </div>
+            <div id="track-list" class="track-list" data-testid="track-list"></div>
+          </section>
+        </aside>
+      </main>
+
+      <div id="map-chooser" class="map-chooser" data-testid="map-chooser" hidden>
+        <div id="map-chooser-backdrop" class="map-chooser-backdrop"></div>
+        <div
+          class="map-chooser-sheet"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="map-chooser-title"
+          data-testid="map-chooser-sheet"
+        >
+          <div class="map-chooser-header">
+            <div>
+              <p class="map-chooser-eyebrow">Vykti</p>
+              <h2 id="map-chooser-title">Pasirinkite žemėlapių programą</h2>
+            </div>
+            <button
+              id="map-chooser-close"
+              class="map-chooser-close"
+              type="button"
+              data-testid="map-chooser-close"
+              aria-label="Uždaryti žemėlapių programų pasirinkimą"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="map-chooser-actions">
+            <a
+              id="google-maps-option"
+              class="map-option map-option-google"
+              data-testid="google-maps-option"
+              href="#"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Google Maps
+            </a>
+            <a
+              id="apple-maps-option"
+              class="map-option map-option-apple"
+              data-testid="apple-maps-option"
+              href="#"
+              target="_blank"
+              rel="noreferrer"
+              hidden
+            >
+              Apple Maps
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./assets/leaflet/leaflet.js"></script>
+    <script src="./assets/app.js"></script>
+  </body>
+</html>
