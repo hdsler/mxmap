@@ -4,6 +4,12 @@ const db = require("../db.json");
 const fullTrack = db.find((track) => track.id === "aleksandrijos");
 const missingTrack = db.find((track) => track.id === "babtai");
 const testLocation = { latitude: 54.6872, longitude: 25.2797 };
+const nearestTrack = [...db]
+  .map((track) => ({
+    ...track,
+    distanceKm: calculateDistanceKm(testLocation.latitude, testLocation.longitude, track.lat, track.lng),
+  }))
+  .sort((left, right) => left.distanceKm - right.distanceKm)[0];
 
 test("page loads and shows core sections", async ({ page }, testInfo) => {
   await page.goto("/");
@@ -45,7 +51,7 @@ test("list selection updates details and opens map chooser on desktop and mobile
   await expect(page.getByTestId("apple-maps-option")).toBeHidden();
 });
 
-test("distance is shown in the list when location is available", async ({ page, context }) => {
+test("distance and current location marker are shown when location is available", async ({ page, context }) => {
   await context.grantPermissions(["geolocation"], { origin: "http://127.0.0.1:4173" });
   await context.setGeolocation(testLocation);
   await page.goto("/");
@@ -60,8 +66,24 @@ test("distance is shown in the list when location is available", async ({ page, 
 
   await expect(page.getByTestId(`track-distance-${fullTrack.id}`)).toHaveCount(0);
   await page.getByTestId("location-button").click();
+  await expect(page.getByTestId("current-location-marker")).toBeVisible();
   await expect(page.getByTestId(`track-distance-${fullTrack.id}`)).toHaveText(`Atstumas: ${expectedDistance}`);
   await expect(page.getByTestId("location-button")).toHaveText("Atnaujinti atstumą");
+});
+
+test("list is sorted by nearest distance after location is granted", async ({ page, context }) => {
+  await context.grantPermissions(["geolocation"], { origin: "http://127.0.0.1:4173" });
+  await context.setGeolocation(testLocation);
+  await page.goto("/");
+
+  if (page.viewportSize().width < 900) {
+    await page.getByTestId("mobile-list-toggle").click();
+  }
+
+  await page.getByTestId("location-button").click();
+
+  const firstTrackItem = page.getByTestId("track-list").locator(".track-list-item").first();
+  await expect(firstTrackItem).toHaveAttribute("data-track-id", nearestTrack.id);
 });
 
 test("facebook link in the list is directly clickable", async ({ page }) => {

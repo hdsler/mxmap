@@ -28,9 +28,9 @@
     tracks: [],
     selectedTrackId: null,
     userLocation: null,
+    userLocationMarker: null,
     chooserTrackId: null,
     markersById: new Map(),
-    iconsById: new Map(),
   };
 
   init().catch((error) => {
@@ -145,10 +145,11 @@
 
     const rawTracks = await response.json();
 
-    return rawTracks
-      .map(normalizeTrack)
-      .filter(Boolean)
-      .sort((left, right) => left.name.localeCompare(right.name, "lt"));
+    return sortTracks(
+      rawTracks
+        .map(normalizeTrack)
+        .filter(Boolean)
+    );
   }
 
   function normalizeTrack(track) {
@@ -241,15 +242,6 @@
       return;
     }
 
-    const permissionState = await getLocationPermissionState();
-
-    if (permissionState === "denied") {
-      elements.locationButton.disabled = false;
-      elements.locationButton.textContent = "Bandyti dar kartą";
-      showStatus("Vietos prieiga užblokuota. Leiskite ją naršyklės nustatymuose.");
-      return;
-    }
-
     elements.locationButton.disabled = true;
     elements.locationButton.textContent = "Nustatoma vieta...";
     showStatus("Leiskite prieigą prie vietos, kad būtų parodytas atstumas.");
@@ -265,7 +257,9 @@
           ...track,
           distanceKm: calculateDistanceKm(state.userLocation.lat, state.userLocation.lng, track.lat, track.lng),
         }));
+        state.tracks = sortTracks(state.tracks);
 
+        renderUserLocationMarker();
         renderTrackList();
         updateListSelection();
         elements.locationButton.disabled = false;
@@ -298,8 +292,29 @@
       marker.bindPopup(track.name);
 
       state.markersById.set(track.id, marker);
-      state.iconsById.set(track.id, icon);
     });
+  }
+
+  function renderUserLocationMarker() {
+    if (!state.userLocation || !state.map) {
+      return;
+    }
+
+    const icon = L.divIcon({
+      className: "current-location-wrapper",
+      html: '<div class="current-location-marker" data-testid="current-location-marker" aria-label="Jūsų vieta"></div>',
+      iconSize: [18, 18],
+      iconAnchor: [9, 9],
+    });
+
+    if (state.userLocationMarker) {
+      state.userLocationMarker.setLatLng([state.userLocation.lat, state.userLocation.lng]);
+      state.userLocationMarker.setIcon(icon);
+      return;
+    }
+
+    state.userLocationMarker = L.marker([state.userLocation.lat, state.userLocation.lng], { icon }).addTo(state.map);
+    state.userLocationMarker.bindPopup("Jūsų vieta");
   }
 
   function createMarkerHtml(track, selected) {
@@ -404,6 +419,23 @@
       : `<p class="detail-value" data-testid="track-contact-name">Kontaktinio asmens nėra</p>`;
 
     elements.details.innerHTML = `
+      <div class="actions-row actions-row-top">
+        ${
+          track.facebookUrl
+            ? `<a class="facebook-button" data-testid="track-facebook-link" href="${escapeAttribute(
+                track.facebookUrl
+              )}" target="_blank" rel="noreferrer">Atidaryti grupę</a>`
+            : `<p class="detail-value action-note" data-testid="track-facebook-link">Facebook nuorodos nėra</p>`
+        }
+        <button
+          class="navigate-button"
+          data-testid="navigate-button"
+          type="button"
+          data-track-id="${escapeAttribute(track.id)}"
+        >
+          Vykti
+        </button>
+      </div>
       <div class="detail-group">
         <span class="detail-label">Trasa</span>
         <p class="detail-value" data-testid="track-name">${escapeHtml(track.name)}</p>
@@ -419,20 +451,6 @@
       <div class="detail-group">
         <span class="detail-label">Telefono numeris</span>
         ${phoneMarkup}
-      </div>
-      <div class="detail-group">
-        <span class="detail-label">Facebook grupė</span>
-        ${facebookMarkup}
-      </div>
-      <div class="actions-row">
-        <button
-          class="navigate-button"
-          data-testid="navigate-button"
-          type="button"
-          data-track-id="${escapeAttribute(track.id)}"
-        >
-          Vykti
-        </button>
       </div>
     `;
 
@@ -476,17 +494,23 @@
     return "";
   }
 
-  async function getLocationPermissionState() {
-    if (!navigator.permissions || !navigator.permissions.query) {
-      return "unknown";
-    }
+  function sortTracks(tracks) {
+    return [...tracks].sort((left, right) => {
+      const leftHasDistance = typeof left.distanceKm === "number";
+      const rightHasDistance = typeof right.distanceKm === "number";
 
-    try {
-      const result = await navigator.permissions.query({ name: "geolocation" });
-      return result.state;
-    } catch (error) {
-      return "unknown";
-    }
+      if (leftHasDistance && rightHasDistance) {
+        if (left.distanceKm !== right.distanceKm) {
+          return left.distanceKm - right.distanceKm;
+        }
+      } else if (leftHasDistance) {
+        return -1;
+      } else if (rightHasDistance) {
+        return 1;
+      }
+
+      return left.name.localeCompare(right.name, "lt");
+    });
   }
 
   function handleLocationFailure(error) {
@@ -496,16 +520,31 @@
     elements.locationButton.textContent = "Bandyti dar kartą";
 
     if (error && error.code === 1) {
-      showStatus("Vietos prieiga užblokuota. Leiskite ją naršyklės nustatymuose.");
+      showStatus(
+        `Vietos prieiga užblokuota. Leiskite ją naršyklės nustatymuose. Klaidos kodas: 1${
+          error.message ? ` (${error.message})` : ""
+        }`
+      );
       return;
     }
 
     if (error && error.code === 3) {
-      showStatus("Nepavyko nustatyti vietos. Bandykite dar kartą.");
+      showStatus(
+        `Baigėsi vietos nustatymo laukimo laikas. Klaidos kodas: 3${error.message ? ` (${error.message})` : ""}`
+      );
       return;
     }
 
-    showStatus("Nepavyko nustatyti vietos. Bandykite dar kartą.");
+    if (error && error.code === 2) {
+      showStatus(
+        `Nepavyko gauti vietos duomenų. Klaidos kodas: 2${error.message ? ` (${error.message})` : ""}`
+      );
+      return;
+    }
+
+    showStatus(
+      `Nepavyko nustatyti vietos. Bandykite dar kartą.${error && error.message ? ` (${error.message})` : ""}`
+    );
   }
 
   function formatDistance(distanceKm) {

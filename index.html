@@ -50,6 +50,15 @@
             </button>
           </div>
 
+          <section class="details-panel" data-testid="track-details" aria-live="polite">
+            <div class="panel-header">
+              <h2>Trasos informacija</h2>
+            </div>
+            <div id="track-details-content" class="details-content">
+              <p class="placeholder">Pasirinkite trasą</p>
+            </div>
+          </section>
+
           <section
             id="track-list-panel"
             class="track-list-panel"
@@ -60,15 +69,6 @@
               <h2>Motokrosų trasų sąrašas</h2>
             </div>
             <div id="track-list" class="track-list" data-testid="track-list"></div>
-          </section>
-
-          <section class="details-panel" data-testid="track-details" aria-live="polite">
-            <div class="panel-header">
-              <h2>Trasos informacija</h2>
-            </div>
-            <div id="track-details-content" class="details-content">
-              <p class="placeholder">Pasirinkite trasą</p>
-            </div>
           </section>
         </aside>
       </main>
@@ -123,7 +123,6 @@
         </div>
       </div>
     </div>
-
     <script src="./node_modules/leaflet/dist/leaflet.js"></script>
     <script src="./assets/app.js"></script>
   </body>
