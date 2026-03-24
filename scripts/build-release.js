@@ -2,9 +2,9 @@ const fs = require("fs");
 const path = require("path");
 
 const projectRoot = path.resolve(__dirname, "..");
-const distDir = path.join(projectRoot, "dist");
-const distAssetsDir = path.join(distDir, "assets");
-const distLeafletDir = path.join(distAssetsDir, "leaflet");
+const docsDir = path.join(projectRoot, "docs");
+const docsAssetsDir = path.join(docsDir, "assets");
+const docsLeafletDir = path.join(docsAssetsDir, "leaflet");
 const leafletDistDir = path.join(projectRoot, "node_modules", "leaflet", "dist");
 
 build();
@@ -24,23 +24,23 @@ function ensureLeafletInstalled() {
 }
 
 function resetDist() {
-  fs.rmSync(distDir, { recursive: true, force: true });
-  fs.mkdirSync(distLeafletDir, { recursive: true });
+  fs.rmSync(docsDir, { recursive: true, force: true });
+  fs.mkdirSync(docsLeafletDir, { recursive: true });
 }
 
 function copyStaticFiles() {
-  fs.copyFileSync(path.join(projectRoot, "db.json"), path.join(distDir, "db.json"));
-  fs.cpSync(path.join(projectRoot, "assets"), distAssetsDir, { recursive: true });
+  fs.copyFileSync(path.join(projectRoot, "db.json"), path.join(docsDir, "db.json"));
+  fs.cpSync(path.join(projectRoot, "assets"), docsAssetsDir, { recursive: true });
 }
 
 function copyLeafletAssets() {
   const filesToCopy = ["leaflet.css", "leaflet.js"];
 
   filesToCopy.forEach((fileName) => {
-    fs.copyFileSync(path.join(leafletDistDir, fileName), path.join(distLeafletDir, fileName));
+    fs.copyFileSync(path.join(leafletDistDir, fileName), path.join(docsLeafletDir, fileName));
   });
 
-  fs.cpSync(path.join(leafletDistDir, "images"), path.join(distLeafletDir, "images"), { recursive: true });
+  fs.cpSync(path.join(leafletDistDir, "images"), path.join(docsLeafletDir, "images"), { recursive: true });
 }
 
 function writeReleaseHtml() {
@@ -49,5 +49,5 @@ function writeReleaseHtml() {
     .replace("./node_modules/leaflet/dist/leaflet.css", "./assets/leaflet/leaflet.css")
     .replace("./node_modules/leaflet/dist/leaflet.js", "./assets/leaflet/leaflet.js");
 
-  fs.writeFileSync(path.join(distDir, "index.html"), releaseHtml);
+  fs.writeFileSync(path.join(docsDir, "index.html"), releaseHtml);
 }
