@@ -10,7 +10,14 @@
     listPanel: document.querySelector("#track-list-panel"),
     details: document.querySelector("#track-details-content"),
     listToggle: document.querySelector("#list-toggle"),
+    locationAction: document.querySelector("#location-action"),
     locationButton: document.querySelector("#location-button"),
+    locationDismiss: document.querySelector("#location-dismiss"),
+    mapChooser: document.querySelector("#map-chooser"),
+    mapChooserBackdrop: document.querySelector("#map-chooser-backdrop"),
+    mapChooserClose: document.querySelector("#map-chooser-close"),
+    googleMapsOption: document.querySelector("#google-maps-option"),
+    appleMapsOption: document.querySelector("#apple-maps-option"),
     statusBanner: document.querySelector("#status-banner"),
     statusBannerText: document.querySelector("#status-banner-text"),
     statusClose: document.querySelector("#status-close"),
@@ -21,6 +28,7 @@
     tracks: [],
     selectedTrackId: null,
     userLocation: null,
+    chooserTrackId: null,
     markersById: new Map(),
     iconsById: new Map(),
   };
@@ -35,6 +43,8 @@
   async function init() {
     setupListToggle();
     setupLocationButton();
+    setupLocationDismiss();
+    setupMapChooser();
     setupStatusBanner();
     renderInitialDetails("Pasirinkite trasą");
     showStatus("Kraunami trasų duomenys...");
@@ -92,9 +102,25 @@
     });
   }
 
+  function setupLocationDismiss() {
+    elements.locationDismiss.addEventListener("click", () => {
+      elements.locationAction.hidden = true;
+    });
+  }
+
   function setupStatusBanner() {
     elements.statusClose.addEventListener("click", () => {
       hideStatus();
+    });
+  }
+
+  function setupMapChooser() {
+    elements.mapChooserClose.addEventListener("click", closeMapChooser);
+    elements.mapChooserBackdrop.addEventListener("click", closeMapChooser);
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !elements.mapChooser.hidden) {
+        closeMapChooser();
+      }
     });
   }
 
@@ -361,7 +387,6 @@
   }
 
   function renderTrackDetails(track) {
-    const navigateUrl = buildNavigationUrl(track);
     const facebookMarkup = track.facebookUrl
       ? `<a class="facebook-button" data-testid="track-facebook-link" href="${escapeAttribute(
           track.facebookUrl
@@ -400,17 +425,20 @@
         ${facebookMarkup}
       </div>
       <div class="actions-row">
-        <a
+        <button
           class="navigate-button"
           data-testid="navigate-button"
-          href="${escapeAttribute(navigateUrl)}"
-          target="_blank"
-          rel="noreferrer"
+          type="button"
+          data-track-id="${escapeAttribute(track.id)}"
         >
           Vykti
-        </a>
+        </button>
       </div>
     `;
+
+    elements.details.querySelector('[data-testid="navigate-button"]').addEventListener("click", () => {
+      openMapChooser(track.id);
+    });
   }
 
   function renderInitialDetails(message) {
@@ -432,13 +460,12 @@
   }
 
   function buildNavigationUrl(track) {
-    const encodedAddress = encodeURIComponent(track.address);
-
-    if (isAppleDevice()) {
-      return `https://maps.apple.com/?ll=${track.lat},${track.lng}&q=${encodedAddress}`;
-    }
-
     return `https://www.google.com/maps/search/?api=1&query=${track.lat},${track.lng}`;
+  }
+
+  function buildAppleMapsUrl(track) {
+    const encodedAddress = encodeURIComponent(track.address);
+    return `https://maps.apple.com/?ll=${track.lat},${track.lng}&q=${encodedAddress}`;
   }
 
   function getDistanceLabel(track) {
@@ -511,6 +538,32 @@
   function isAppleDevice() {
     const userAgent = navigator.userAgent || "";
     return APPLE_DEVICE_PATTERN.test(userAgent);
+  }
+
+  function openMapChooser(trackId) {
+    const track = state.tracks.find((entry) => entry.id === trackId);
+
+    if (!track) {
+      return;
+    }
+
+    state.chooserTrackId = trackId;
+    elements.googleMapsOption.href = buildNavigationUrl(track);
+
+    if (isAppleDevice()) {
+      elements.appleMapsOption.hidden = false;
+      elements.appleMapsOption.href = buildAppleMapsUrl(track);
+    } else {
+      elements.appleMapsOption.hidden = true;
+      elements.appleMapsOption.removeAttribute("href");
+    }
+
+    elements.mapChooser.hidden = false;
+  }
+
+  function closeMapChooser() {
+    elements.mapChooser.hidden = true;
+    state.chooserTrackId = null;
   }
 
   function escapeHtml(value) {

@@ -88,7 +88,6 @@ Language requirements:
 - Code comments must remain in English
 
 Example Lithuanian labels:
-- `Motokroso trasos Lietuvoje`
 - `Trasų sąrašas`
 - `Rodyti trasas`
 - `Slėpti trasas`
@@ -132,7 +131,9 @@ The intended user flow is:
 2. See all tracks on the map
 3. Tap a marker or a track in the list
 4. See essential track details
-5. Tap `Vykti` to open navigation
+5. Tap `Vykti`
+6. Choose which map application to open
+7. Open navigation to the selected track
 
 The same selected track state must drive:
 - marker highlight
@@ -204,6 +205,8 @@ When a track is selected, the details panel must show:
 - Facebook group link
 - `Vykti` button
 
+The Facebook group link should remain highly visible because community activity primarily happens there.
+
 Missing data must be handled safely and clearly.
 
 Suggested fallback labels:
@@ -218,19 +221,24 @@ Suggested fallback labels:
 The selected track must provide a `Vykti` button.
 
 Behavior:
-- Opens navigation for the selected track
+- Opens a small chooser for the selected track instead of navigating immediately
 - Uses track coordinates and/or address
-- Opens Apple Maps on Apple devices
-- Opens Google Maps on other devices
+- Allows the user to explicitly choose the map application
+- The chooser should prefer the most common installed/available map destinations for the platform
 - Must work when a track is selected from either the map or the list
 
-Deterministic navigation rule:
-- On Apple devices, use Apple Maps URL format
-- On non-Apple devices, use Google Maps URL format
-- If device detection is uncertain, fall back to Google Maps
+Required navigation choices:
+- `Google Maps`
+- `Apple Maps` when relevant for the device/platform
+
+Navigation chooser UX:
+- The chooser must be simple and fast to dismiss
+- It may be implemented as an action sheet, bottom sheet, popover, or compact modal
+- On mobile, a bottom sheet is preferred
+- On desktop, a small popover or modal is preferred
 
 Expected result:
-- User can tap `Vykti` and immediately open navigation to the selected track
+- User can tap `Vykti`, choose a map application, and open navigation to the selected track
 
 ---
 
@@ -259,6 +267,15 @@ Required for details:
 - While loading data, the UI should show a simple Lithuanian loading state
 - If `db.json` fails to load, the UI should show a simple Lithuanian error message
 - If no valid tracks are available after parsing, the UI should show a simple Lithuanian empty state
+
+### Location and distance states
+- Distance should only be shown when a valid user location has been obtained
+- If distance is not available, the track list should not show placeholder distance text per track
+- The location request action must be dismissible
+- Location error/status banners must be dismissible
+- If location access is denied, the UI must explain in Lithuanian how to enable it in browser settings
+- If location lookup fails for another reason, the UI must show a clear Lithuanian retry state
+- Mobile browsers must be tested specifically for location-permission behavior because current behavior is unreliable and must be corrected before considering the feature complete
 
 ---
 
@@ -299,6 +316,13 @@ No framework is required.
 - Tap targets should be large enough for mobile use
 - Text contrast should remain readable in daylight/mobile conditions
 
+### Action semantics and visual hierarchy
+- Buttons with different meanings should not rely on conflicting or ambiguous color semantics
+- Destructive actions are not part of this UI, so strong warning/destructive coloring should be avoided for neutral actions such as collapsing a list
+- Primary actions should use one consistent accent treatment
+- Secondary utility actions should use quieter styling
+- Dismiss controls should use compact close icons rather than full-width button treatments when appropriate
+
 ---
 
 ## 15. Build Phases
@@ -323,6 +347,11 @@ No framework is required.
 - Responsive polish
 - Accessibility and tap target improvements
 - Add local automated UI tests
+
+### Phase 5
+- Add map-application chooser for `Vykti`
+- Refine action-color semantics and button hierarchy
+- Stabilize mobile location-permission flow and error messaging
 
 ---
 
@@ -352,9 +381,13 @@ Automated local UI tests should cover:
 - Clicking a track in the list updates the details panel
 - Clicking a marker updates the details panel
 - Selected track stays synchronized between map, list, and details
-- `Vykti` button is generated for the selected track
+- `Vykti` opens the map-application chooser for the selected track
+- Map-application chooser contains the expected choices for the current platform logic
 - Missing contact or Facebook data shows Lithuanian fallback text
 - Mobile track list toggle works
+- Dismiss controls for status and location actions work
+- Distance is shown only after location is granted
+- Location error state is shown in Lithuanian when permission is denied or lookup fails
 
 ### Testability requirements
 
@@ -391,6 +424,8 @@ The PoC is successful if:
 - All tracks from `db.json` appear on the map
 - User can select a track from either the map or the list
 - User can see the required track details
-- User can tap `Vykti` and open external navigation
+- User can tap `Vykti`, choose a map app, and open external navigation
 - The experience is simple and usable on both mobile and desktop
 - Local automated UI tests cover the main interaction flow
+- Action colors and dismiss patterns are visually unambiguous
+- Mobile location access works reliably enough to show distance when browser permissions are correctly enabled

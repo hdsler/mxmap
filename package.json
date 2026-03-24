@@ -4,6 +4,8 @@
   "private": true,
   "type": "commonjs",
   "scripts": {
+    "build": "node scripts/build-release.js",
+    "prepare:release": "node scripts/build-release.js",
     "test": "playwright test",
     "test:headed": "playwright test --headed"
   },

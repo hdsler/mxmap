@@ -21,7 +21,7 @@ test("page loads and shows core sections", async ({ page }, testInfo) => {
   }
 });
 
-test("list selection updates details and navigation on desktop and mobile", async ({ page }) => {
+test("list selection updates details and opens map chooser on desktop and mobile", async ({ page }) => {
   await page.goto("/");
 
   if (page.viewportSize().width < 900) {
@@ -36,10 +36,13 @@ test("list selection updates details and navigation on desktop and mobile", asyn
   await expect(page.getByTestId("track-phone")).toHaveText(fullTrack.contact.phone);
   await expect(page.getByTestId("track-phone")).toHaveAttribute("href", `tel:${fullTrack.contact.phone}`);
   await expect(page.getByTestId("track-facebook-link")).toHaveAttribute("href", fullTrack.facebookUrl);
-  await expect(page.getByTestId("navigate-button")).toHaveAttribute(
+  await page.getByTestId("navigate-button").click();
+  await expect(page.getByTestId("map-chooser")).toBeVisible();
+  await expect(page.getByTestId("google-maps-option")).toHaveAttribute(
     "href",
     new RegExp(`${fullTrack.lat},${fullTrack.lng}`)
   );
+  await expect(page.getByTestId("apple-maps-option")).toBeHidden();
 });
 
 test("distance is shown in the list when location is available", async ({ page, context }) => {
@@ -74,6 +77,14 @@ test("facebook link in the list is directly clickable", async ({ page }) => {
   await expect(page.getByText("Pasirinkite trasą")).toBeVisible();
 });
 
+test("dismiss controls hide their related UI", async ({ page }) => {
+  await page.goto("/");
+
+  await expect(page.getByTestId("location-action")).toBeVisible();
+  await page.getByTestId("location-dismiss").click();
+  await expect(page.getByTestId("location-action")).toBeHidden();
+});
+
 test("marker selection updates details", async ({ page }) => {
   await page.goto("/");
 
@@ -95,6 +106,21 @@ test("fallback text is shown for missing contact and facebook data", async ({ pa
   await expect(page.getByTestId("track-contact-name")).toHaveText("Kontaktinio asmens nėra");
   await expect(page.getByTestId("track-phone")).toHaveText("Telefono numerio nėra");
   await expect(page.getByTestId("track-facebook-link")).toHaveText("Facebook nuorodos nėra");
+});
+
+test("status banner can be dismissed", async ({ page }) => {
+  await page.goto("/");
+
+  await page.evaluate(() => {
+    const banner = document.querySelector("#status-banner");
+    const text = document.querySelector("#status-banner-text");
+    banner.hidden = false;
+    text.textContent = "Bandomasis pranešimas";
+  });
+
+  await expect(page.getByTestId("status-banner")).toBeVisible();
+  await page.getByTestId("status-banner").getByRole("button").click();
+  await expect(page.getByTestId("status-banner")).toBeHidden();
 });
 
 test("mobile list toggle expands and collapses list panel", async ({ page }, testInfo) => {

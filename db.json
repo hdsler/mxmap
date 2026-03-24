@@ -12,28 +12,34 @@
       "phone": "+37068685100",
       "email": "sauliaimx@gmail.com"
     },
-    "facebookUrl": "https://www.facebook.com/groups/830647771162002/"
+    "facebookUrl": "https://www.facebook.com/groups/830647771162002/",
+    "status": "official",
+    "access": "public"
   },
   {
     "id": "aliai",
     "name": "Alių motokroso trasa",
     "locationName": "Aliai, Utenos r.",
-    "address": "Aliai, Utenos r.",
-    "lat": 55.482076,
-    "lng": 25.727026,
+    "address": "Aliai, Utenos sen., Utenos r.",
+    "lat": 55.48202,
+    "lng": 25.72518,
     "trackCategory": "čempionatinė",
     "contact": {
       "name": "Nerijus Šeduikis",
       "phone": "+37068626320",
       "email": "nerijus@porteris.com"
     },
-    "facebookUrl": null
+    "facebookUrl": null,
+    "gpsSource": "OpenStreetMap via Mapcarta",
+    "gpsConfidence": "high",
+    "status": "official",
+    "access": "public"
   },
   {
     "id": "zemaitija",
     "name": "Automoto sporto kompleksas „Žemaitija“",
     "locationName": "Plungės r.",
-    "address": "Motokroso g. 8, Pauošnių k, Plungės r.",
+    "address": "Motokroso g. 8, Pauošnių k., Plungės r. sav., LT-90110",
     "lat": 55.974971,
     "lng": 21.924209,
     "trackCategory": "varžybinė",
@@ -42,18 +48,26 @@
       "phone": "+37069887028",
       "email": "sauliaus511@gmail.com"
     },
-    "facebookUrl": null
+    "facebookUrl": null,
+    "gpsSource": "Rekvizitai + MXMap listing",
+    "gpsConfidence": "high",
+    "status": "official",
+    "access": "public"
   },
   {
     "id": "babtai",
     "name": "Babtų motokroso trasa",
     "locationName": "Kauno r.",
-    "address": "Miško g., Pagynė, Kauno r. sav.",
+    "address": "Miško g., Jugintai / Pagynė, Kauno r. sav.",
     "lat": 55.118992,
     "lng": 23.795161,
     "trackCategory": null,
     "contact": null,
-    "facebookUrl": null
+    "facebookUrl": null,
+    "gpsSource": "Waze + MXMap listing",
+    "gpsConfidence": "medium",
+    "status": "official",
+    "access": "public"
   },
   {
     "id": "berciunai",
@@ -68,7 +82,9 @@
       "phone": "+37065640436",
       "email": "zygis78@gmail.com"
     },
-    "facebookUrl": null
+    "facebookUrl": null,
+    "status": "official",
+    "access": "public"
   },
   {
     "id": "birzai",
@@ -83,22 +99,28 @@
       "phone": "+37069955620",
       "email": "spokastadas@gmail.com"
     },
-    "facebookUrl": "https://www.facebook.com/birzmoto"
+    "facebookUrl": "https://www.facebook.com/birzmoto",
+    "status": "official",
+    "access": "public"
   },
   {
     "id": "dubysa",
     "name": "Dubysos motokroso trasa",
     "locationName": "Kelmės r.",
-    "address": "Laugalys, Kelmės r. sav.",
-    "lat": 55.586741,
-    "lng": 23.066213,
+    "address": "Laugalis, Kelmės r. sav.",
+    "lat": 55.58519,
+    "lng": 23.06684,
     "trackCategory": "varžybinė",
     "contact": {
       "name": "Gintautas Kaušius",
       "phone": "+37061295754",
       "email": "info@justudija.lt"
     },
-    "facebookUrl": "https://www.facebook.com/groups/904379336322799"
+    "facebookUrl": "https://www.facebook.com/groups/904379336322799",
+    "gpsSource": "OpenStreetMap via Mapcarta",
+    "gpsConfidence": "high",
+    "status": "official",
+    "access": "public"
   },
   {
     "id": "jiestrakis",
@@ -109,7 +131,9 @@
     "lng": 23.676458,
     "trackCategory": null,
     "contact": null,
-    "facebookUrl": null
+    "facebookUrl": null,
+    "status": "official",
+    "access": "public"
   },
   {
     "id": "kalvarija",
@@ -124,13 +148,15 @@
       "phone": "+37068227808",
       "email": null
     },
-    "facebookUrl": null
+    "facebookUrl": null,
+    "status": "official",
+    "access": "public"
   },
   {
     "id": "kampai",
     "name": "Kampai motokroso trasa",
     "locationName": "Kėdainių r.",
-    "address": "Bajėnai, Kėdainių r.",
+    "address": "58205 Bajėnai II, Kėdainių r.",
     "lat": 55.171175,
     "lng": 23.823246,
     "trackCategory": null,
@@ -139,13 +165,17 @@
       "phone": "+37069872568",
       "email": "vilimasvaidotas@gmail.com"
     },
-    "facebookUrl": "https://www.facebook.com/groups/1927956627486211"
+    "facebookUrl": "https://www.facebook.com/groups/1927956627486211",
+    "gpsSource": "MXMap listing",
+    "gpsConfidence": "medium",
+    "status": "official",
+    "access": "public"
   },
   {
     "id": "kvedarna",
     "name": "Kvėdarnos motokroso trasa",
     "locationName": "Šilalės r.",
-    "address": "Šilalės r.",
+    "address": "75342, Kvėdarna / Ąžuolija, Šilalės r.",
     "lat": 55.569139,
     "lng": 22.056998,
     "trackCategory": null,
@@ -154,13 +184,17 @@
       "phone": "+37066282258",
       "email": null
     },
-    "facebookUrl": "https://www.facebook.com/groups/1698571127081579/"
+    "facebookUrl": "https://www.facebook.com/groups/1698571127081579/",
+    "gpsSource": "Cybo + MXMap listing",
+    "gpsConfidence": "medium",
+    "status": "official",
+    "access": "public"
   },
   {
     "id": "manto",
     "name": "Manto trasa (MX track)",
     "locationName": "Elektrėnų r.",
-    "address": "Gabriliava, Elektrėnų r.",
+    "address": "Senųjų Migūčionių k. 2, LT-26131, Elektrėnai",
     "lat": 54.809636,
     "lng": 24.678466,
     "trackCategory": null,
@@ -169,43 +203,55 @@
       "phone": "+37067371596",
       "email": null
     },
-    "facebookUrl": null
+    "facebookUrl": null,
+    "gpsSource": "Company registry / listing",
+    "gpsConfidence": "medium",
+    "status": "official",
+    "access": "public"
   },
   {
     "id": "mickunai",
     "name": "Mickūnai MX parkas",
     "locationName": "Anykščių r.",
-    "address": "Mickūnų k. 17, Anykščių r.",
-    "lat": 55.635088,
-    "lng": 25.288686,
+    "address": "Mickūnų k., Anykščių r.",
+    "lat": 55.635327,
+    "lng": 25.288851,
     "trackCategory": "čempionatinė",
     "contact": {
       "name": "Nerijus Jasiukonis",
       "phone": "+37060370418",
       "email": null
     },
-    "facebookUrl": "https://www.facebook.com/profile.php?id=100059933895510"
+    "facebookUrl": "https://www.facebook.com/profile.php?id=100059933895510",
+    "gpsSource": "Official supplementary regulations PDF",
+    "gpsConfidence": "high",
+    "status": "official",
+    "access": "public"
   },
   {
     "id": "motoroki",
     "name": "Moto-Roki motociklų kroso trasa",
     "locationName": "Rokiškio r.",
-    "address": "Rokiškio r.",
-    "lat": 55.974757,
-    "lng": 25.52877,
+    "address": "3623, 42341 Zyboliai, Rokiškio r.",
+    "lat": 55.97409,
+    "lng": 25.53015,
     "trackCategory": "čempionatinė",
     "contact": {
       "name": "Mantas Kišūnas",
       "phone": "+3706247047",
       "email": null
     },
-    "facebookUrl": "https://www.facebook.com/groups/552789962186913"
+    "facebookUrl": "https://www.facebook.com/groups/552789962186913",
+    "gpsSource": "OpenStreetMap via Mapcarta",
+    "gpsConfidence": "high",
+    "status": "official",
+    "access": "public"
   },
   {
     "id": "panevezys",
     "name": "Panevėžio motokroso trasa",
     "locationName": "Panevėžys",
-    "address": "J. Janonio g. 33, Panevėžys",
+    "address": "J. Janonio g. 30F, Panevėžys, 35101",
     "lat": 55.734868,
     "lng": 24.30149,
     "trackCategory": "varžybinė",
@@ -214,22 +260,30 @@
       "phone": "+37062653400",
       "email": "almis_moto@yahoo.com"
     },
-    "facebookUrl": null
+    "facebookUrl": null,
+    "gpsSource": "Panevėžys NOW / directory listing",
+    "gpsConfidence": "medium",
+    "status": "official",
+    "access": "public"
   },
   {
     "id": "petrašiūnai",
     "name": "Petrašiūnų motokroso trasa",
     "locationName": "Pakruojo r.",
-    "address": "Petrašiūnai, Pakruojo r.",
-    "lat": 56.017082,
-    "lng": 23.920991,
+    "address": "Petrašiūnai, Pakruojo sen., Pakruojo r.",
+    "lat": 56.01742,
+    "lng": 23.92215,
     "trackCategory": "čempionatinė",
     "contact": {
       "name": "Egidijus Šiaučiūnas",
       "phone": "+37065044586",
       "email": "motokrosas@robusta.lt"
     },
-    "facebookUrl": null
+    "facebookUrl": null,
+    "gpsSource": "OpenStreetMap via Mapcarta",
+    "gpsConfidence": "high",
+    "status": "official",
+    "access": "public"
   },
   {
     "id": "rietavas",
@@ -244,7 +298,9 @@
       "phone": "+37061142003",
       "email": null
     },
-    "facebookUrl": "https://www.facebook.com/groups/2788459718046229/"
+    "facebookUrl": "https://www.facebook.com/groups/2788459718046229/",
+    "status": "official",
+    "access": "public"
   },
   {
     "id": "saduniskes",
@@ -255,7 +311,9 @@
     "lng": 25.549186,
     "trackCategory": null,
     "contact": null,
-    "facebookUrl": "https://www.facebook.com/groups/358414681839538/"
+    "facebookUrl": "https://www.facebook.com/groups/358414681839538/",
+    "status": "official",
+    "access": "public"
   },
   {
     "id": "vidugiriai",
@@ -270,7 +328,9 @@
       "phone": null,
       "email": null
     },
-    "facebookUrl": "https://www.facebook.com/groups/967948160945026/"
+    "facebookUrl": "https://www.facebook.com/groups/967948160945026/",
+    "status": "official",
+    "access": "public"
   },
   {
     "id": "zokniai",
@@ -285,6 +345,132 @@
       "phone": null,
       "email": null
     },
-    "facebookUrl": "https://www.facebook.com/groups/1865805743704790/"
+    "facebookUrl": "https://www.facebook.com/groups/1865805743704790/",
+    "status": "official",
+    "access": "public"
+  },
+  {
+    "id": "crazy-ferma",
+    "name": "Crazy Ferma MX",
+    "locationName": "Vilnius region",
+    "address": "Vilniaus r.",
+    "lat": 54.7,
+    "lng": 25.3,
+    "status": "unofficial",
+    "access": "unknown",
+    "trackType": "motocross",
+    "surface": "sand",
+    "description": "Known local riding spot",
+    "facebookUrl": null,
+    "notes": "Exact coordinates need verification"
+  },
+  {
+    "id": "medeina-track",
+    "name": "Trasa prie kavinės Medeina",
+    "locationName": "Vilnius",
+    "address": "Near Medeina cafe, Vilnius",
+    "lat": 54.72,
+    "lng": 25.2,
+    "status": "unofficial",
+    "access": "unknown",
+    "trackType": "motocross",
+    "surface": "mixed",
+    "description": "Small local riding area",
+    "facebookUrl": null,
+    "notes": "Likely informal spot"
+  },
+  {
+    "id": "perkuno-trasa",
+    "name": "Perkūno trasa",
+    "locationName": "Vilnius",
+    "address": "02300 Vilnius, šalia Gariūnų komplekso",
+    "lat": 54.66,
+    "lng": 25.15,
+    "status": "unofficial",
+    "access": "paid",
+    "trackType": "motocross",
+    "surface": "sand",
+    "description": "Popular Vilnius training track",
+    "facebookUrl": null,
+    "gpsSource": "Official Perkūno trasa site",
+    "gpsConfidence": "medium",
+    "notes": "Verify exact location and operator"
+  },
+  {
+    "id": "grigiskes-mx",
+    "name": "Grigiškės motokroso trasa",
+    "locationName": "Grigiškės, Vilnius",
+    "address": "Grigiškės",
+    "lat": 54.683,
+    "lng": 25.083,
+    "status": "unofficial",
+    "access": "unknown",
+    "trackType": "motocross",
+    "surface": "sand",
+    "description": "Local sand riding area",
+    "facebookUrl": null,
+    "notes": "Check access rules"
+  },
+  {
+    "id": "pagiriai-kolia",
+    "name": "Pagiriai trasa (pas Kolia)",
+    "locationName": "Pagiriai, Vilnius r.",
+    "address": "Pagiriai",
+    "lat": 54.593,
+    "lng": 25.186,
+    "status": "unofficial",
+    "access": "private",
+    "trackType": "motocross",
+    "surface": "sand",
+    "description": "Private local track",
+    "facebookUrl": null,
+    "notes": "Permission required"
+  },
+  {
+    "id": "ezero-pagiriai",
+    "name": "Trasa prie ežero (Pagiriai)",
+    "locationName": "Pagiriai, Vilnius r.",
+    "address": "Pagiriai",
+    "lat": 54.585,
+    "lng": 25.21,
+    "status": "unofficial",
+    "access": "unknown",
+    "trackType": "motocross",
+    "surface": "sand",
+    "description": "Small informal track near lake",
+    "facebookUrl": null,
+    "notes": "Unstructured spot"
+  },
+  {
+    "id": "epark-mx-kaunas",
+    "name": "E-Park MX",
+    "locationName": "Kaunas",
+    "address": "Samylų sen., Samylai, 53176 Kauno r. sav.",
+    "lat": 54.9,
+    "lng": 23.9,
+    "status": "official",
+    "access": "paid",
+    "trackType": "motocross",
+    "surface": "mixed",
+    "description": "Professional motocross park near Kaunas",
+    "facebookUrl": "https://www.facebook.com/eparkmx",
+    "gpsSource": "MXMap listing",
+    "gpsConfidence": "medium",
+    "notes": "Well-maintained track, events and training"
+  },
+  {
+    "id": "example-closed-track",
+    "name": "Old MX track (example)",
+    "locationName": "Vilnius region",
+    "address": null,
+    "lat": 54.7,
+    "lng": 25.25,
+    "status": "closed",
+    "access": "unofficial",
+    "trackType": "motocross",
+    "surface": "unknown",
+    "description": "Officially closed but still used by riders",
+    "facebookUrl": null,
+    "notes": "Use at your own risk"
   }
 ]

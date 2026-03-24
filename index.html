@@ -15,7 +15,7 @@
             <div id="status-banner" class="status-banner" data-testid="status-banner" hidden>
               <span id="status-banner-text"></span>
               <button id="status-close" class="status-close" type="button" aria-label="Uždaryti pranešimą">
-                Uždaryti
+                <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div id="map" class="map" data-testid="map"></div>
@@ -24,9 +24,20 @@
 
         <aside class="sidebar">
           <div class="sidebar-toolbar">
-            <button id="location-button" class="location-button" type="button" data-testid="location-button">
-              Rodyti atstumą
-            </button>
+            <div id="location-action" class="location-action" data-testid="location-action">
+              <button id="location-button" class="location-button" type="button" data-testid="location-button">
+                Rodyti atstumą
+              </button>
+              <button
+                id="location-dismiss"
+                class="location-dismiss"
+                type="button"
+                data-testid="location-dismiss"
+                aria-label="Uždaryti atstumo mygtuką"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
             <button
               id="list-toggle"
               class="list-toggle"
@@ -61,6 +72,56 @@
           </section>
         </aside>
       </main>
+
+      <div id="map-chooser" class="map-chooser" data-testid="map-chooser" hidden>
+        <div id="map-chooser-backdrop" class="map-chooser-backdrop"></div>
+        <div
+          class="map-chooser-sheet"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="map-chooser-title"
+          data-testid="map-chooser-sheet"
+        >
+          <div class="map-chooser-header">
+            <div>
+              <p class="map-chooser-eyebrow">Vykti</p>
+              <h2 id="map-chooser-title">Pasirinkite žemėlapių programą</h2>
+            </div>
+            <button
+              id="map-chooser-close"
+              class="map-chooser-close"
+              type="button"
+              data-testid="map-chooser-close"
+              aria-label="Uždaryti žemėlapių programų pasirinkimą"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="map-chooser-actions">
+            <a
+              id="google-maps-option"
+              class="map-option map-option-google"
+              data-testid="google-maps-option"
+              href="#"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Google Maps
+            </a>
+            <a
+              id="apple-maps-option"
+              class="map-option map-option-apple"
+              data-testid="apple-maps-option"
+              href="#"
+              target="_blank"
+              rel="noreferrer"
+              hidden
+            >
+              Apple Maps
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="./node_modules/leaflet/dist/leaflet.js"></script>
