@@ -213,27 +213,6 @@
     "verifiedAt": null
   },
   {
-    "id": "manto",
-    "name": "Manto trasa (MX track)",
-    "locationName": "Elektrėnų r.",
-    "address": "Senųjų Migūčionių k. 2, LT-26131, Elektrėnai",
-    "lat": 54.809636,
-    "lng": 24.678466,
-    "trackCategory": null,
-    "contact": {
-      "name": null,
-      "phone": "+37067371596",
-      "email": null
-    },
-    "facebookUrl": null,
-    "gpsSource": "Company registry / listing",
-    "gpsConfidence": "medium",
-    "status": "official",
-    "access": "public",
-    "verified": false,
-    "verifiedAt": null
-  },
-  {
     "id": "mickunai",
     "name": "Mickūnai MX parkas",
     "locationName": "Anykščių r.",
@@ -352,6 +331,36 @@
     "verifiedAt": "2026-03-29"
   },
   {
+    "id": "sandbox",
+    "name": "Sandbox",
+    "locationName": "Lietuva",
+    "address": "Adreso nėra",
+    "lat": 54.466577,
+    "lng": 24.655774,
+    "status": "official",
+    "access": "unknown",
+    "trackType": "motocross",
+    "surface": "sand",
+    "facebookUrl": "https://www.facebook.com/automotoparkas",
+    "verified": true,
+    "verifiedAt": "2026-03-29"
+  },
+  {
+    "id": "auto-moto-parkas",
+    "name": "Auto Moto Parkas",
+    "locationName": "Lietuva",
+    "address": "Adreso nėra",
+    "lat": 54.446273,
+    "lng": 24.442742,
+    "status": "official",
+    "access": "unknown",
+    "trackType": "motocross",
+    "surface": "unknown",
+    "facebookUrl": "https://www.facebook.com/automotoparkas",
+    "verified": true,
+    "verifiedAt": "2026-03-29"
+  },
+  {
     "id": "vidugiriai",
     "name": "Vidugirių motokroso trasa",
     "locationName": "Anykščių r.",
@@ -411,8 +420,8 @@
     "name": "Trasa prie kavinės Medeina",
     "locationName": "Vilnius",
     "address": "Near Medeina cafe, Vilnius",
-    "lat": 54.72,
-    "lng": 25.2,
+    "lat": 54.753518,
+    "lng": 24.914123,
     "status": "unofficial",
     "access": "unknown",
     "trackType": "motocross",
@@ -420,8 +429,8 @@
     "description": "Small local riding area",
     "facebookUrl": null,
     "notes": "Likely informal spot",
-    "verified": false,
-    "verifiedAt": null
+    "verified": true,
+    "verifiedAt": "2026-03-29"
   },
   {
     "id": "perkuno-trasa",
