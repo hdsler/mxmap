@@ -447,17 +447,17 @@
     "name": "Grigiškės motokroso trasa",
     "locationName": "Grigiškės, Vilnius",
     "address": "Grigiškės",
-    "lat": 54.683,
-    "lng": 25.083,
+    "lat": 54.673575,
+    "lng": 25.100068,
     "status": "unofficial",
     "access": "unknown",
     "trackType": "motocross",
     "surface": "sand",
     "description": "Local sand riding area",
-    "facebookUrl": null,
+    "facebookUrl": "https://www.facebook.com/grigiskesmx",
     "notes": "Check access rules",
-    "verified": false,
-    "verifiedAt": null
+    "verified": true,
+    "verifiedAt": "2026-03-29"
   },
   {
     "id": "pagiriai-kolia",
