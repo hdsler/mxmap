@@ -4,19 +4,19 @@
     "name": "Aleksandrijos motokroso trasa",
     "locationName": "Aleksandrija, Šiauliai",
     "address": "V. Matulionio g. 7, Aleksandrija, 76271 Šiaulių m. sav.",
-    "lat": 55.924459,
-    "lng": 23.366489,
+    "lat": 55.924474,
+    "lng": 23.366378,
     "trackCategory": "čempionatinė",
     "contact": {
       "name": "Rimvidas Daunys",
       "phone": "+37068685100",
       "email": "sauliaimx@gmail.com"
     },
-    "facebookUrl": "https://www.facebook.com/groups/830647771162002/",
+    "facebookUrl": "https://www.facebook.com/groups/830647771162002",
     "status": "official",
     "access": "public",
-    "verified": false,
-    "verifiedAt": null
+    "verified": true,
+    "verifiedAt": "2026-03-30"
   },
   {
     "id": "aliai",
@@ -44,21 +44,21 @@
     "name": "Automoto sporto kompleksas „Žemaitija“",
     "locationName": "Plungės r.",
     "address": "Motokroso g. 8, Pauošnių k., Plungės r. sav., LT-90110",
-    "lat": 55.974971,
-    "lng": 21.924209,
+    "lat": 55.975113,
+    "lng": 21.924563,
     "trackCategory": "varžybinė",
     "contact": {
       "name": "Saulius Stankus",
       "phone": "+37069887028",
       "email": "sauliaus511@gmail.com"
     },
-    "facebookUrl": null,
+    "facebookUrl": "https://www.facebook.com/emsportzemaitija",
     "gpsSource": "Rekvizitai + MXMap listing",
     "gpsConfidence": "high",
     "status": "official",
     "access": "public",
-    "verified": false,
-    "verifiedAt": null
+    "verified": true,
+    "verifiedAt": "2026-03-30"
   },
   {
     "id": "babtai",
@@ -90,7 +90,7 @@
       "phone": "+37065640436",
       "email": "zygis78@gmail.com"
     },
-    "facebookUrl": "https://www.facebook.com/groups/675674992609048/?locale=lt_LT",
+    "facebookUrl": "https://www.facebook.com/groups/675674992609048/",
     "status": "official",
     "access": "public",
     "verified": true,
@@ -120,8 +120,8 @@
     "name": "Dubysos motokroso trasa",
     "locationName": "Kelmės r.",
     "address": "Laugalis, Kelmės r. sav.",
-    "lat": 55.58519,
-    "lng": 23.06684,
+    "lat": 55.586786,
+    "lng": 23.066465,
     "trackCategory": "varžybinė",
     "contact": {
       "name": "Gintautas Kaušius",
@@ -133,8 +133,8 @@
     "gpsConfidence": "high",
     "status": "official",
     "access": "public",
-    "verified": false,
-    "verifiedAt": null
+    "verified": true,
+    "verifiedAt": "2026-03-30"
   },
   {
     "id": "jiestrakis",
@@ -196,8 +196,8 @@
     "name": "Kvėdarnos motokroso trasa",
     "locationName": "Šilalės r.",
     "address": "75342, Kvėdarna / Ąžuolija, Šilalės r.",
-    "lat": 55.569139,
-    "lng": 22.056998,
+    "lat": 55.568418,
+    "lng": 22.056661,
     "trackCategory": null,
     "contact": {
       "name": "Nerimantas Jucius",
@@ -209,8 +209,8 @@
     "gpsConfidence": "medium",
     "status": "official",
     "access": "public",
-    "verified": false,
-    "verifiedAt": null
+    "verified": true,
+    "verifiedAt": "2026-03-30"
   },
   {
     "id": "mickunai",
@@ -301,19 +301,19 @@
     "name": "Rietavo motokroso trasa",
     "locationName": "Rietavo r.",
     "address": "Lioliai, Rietavo r.",
-    "lat": 55.744061,
-    "lng": 21.878359,
+    "lat": 55.744096,
+    "lng": 21.878331,
     "trackCategory": null,
     "contact": {
       "name": "Eimantas Budreckis",
       "phone": "+37061142003",
       "email": null
     },
-    "facebookUrl": "https://www.facebook.com/groups/2788459718046229/",
+    "facebookUrl": "https://www.facebook.com/groups/2788459718046229",
     "status": "official",
     "access": "public",
-    "verified": false,
-    "verifiedAt": null
+    "verified": true,
+    "verifiedAt": "2026-03-30"
   },
   {
     "id": "saduniskes",
@@ -329,6 +329,21 @@
     "access": "public",
     "verified": true,
     "verifiedAt": "2026-03-29"
+  },
+  {
+    "id": "motoboris",
+    "name": "Motoboris",
+    "locationName": "Vilniaus r.",
+    "address": "Adreso nėra",
+    "lat": 54.631732,
+    "lng": 25.661889,
+    "status": "unofficial",
+    "access": "unknown",
+    "trackType": "motocross",
+    "surface": "unknown",
+    "facebookUrl": "https://www.facebook.com/profile.php?id=100022088953619",
+    "verified": true,
+    "verifiedAt": "2026-03-30"
   },
   {
     "id": "sandbox",
@@ -392,7 +407,7 @@
       "phone": null,
       "email": null
     },
-    "facebookUrl": "https://www.facebook.com/groups/1865805743704790?locale=lt_LT",
+    "facebookUrl": "https://www.facebook.com/groups/1865805743704790",
     "status": "official",
     "access": "public",
     "verified": true,
