@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 const projectRoot = path.resolve(__dirname, "..");
+const customDomainFile = path.join(projectRoot, "CNAME");
 const docsDir = path.join(projectRoot, "docs");
 const docsAssetsDir = path.join(docsDir, "assets");
 const docsLeafletDir = path.join(docsAssetsDir, "leaflet");
@@ -31,6 +32,10 @@ function resetDist() {
 function copyStaticFiles() {
   fs.copyFileSync(path.join(projectRoot, "db.json"), path.join(docsDir, "db.json"));
   fs.cpSync(path.join(projectRoot, "assets"), docsAssetsDir, { recursive: true });
+
+  if (fs.existsSync(customDomainFile)) {
+    fs.copyFileSync(customDomainFile, path.join(docsDir, "CNAME"));
+  }
 }
 
 function copyLeafletAssets() {
