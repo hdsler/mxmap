@@ -73,10 +73,17 @@
       return;
     }
 
-    elements.disclaimerDismiss.addEventListener("click", () => {
+    const dismissDisclaimer = (event) => {
+      if (event) {
+        event.preventDefault();
+      }
+
       elements.disclaimer.hidden = true;
       refreshMapLayout();
-    });
+    };
+
+    elements.disclaimerDismiss.addEventListener("click", dismissDisclaimer);
+    elements.disclaimerDismiss.addEventListener("touchend", dismissDisclaimer, { passive: false });
   }
 
   function refreshMapLayout() {
