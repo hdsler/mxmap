@@ -14,7 +14,9 @@
     },
     "facebookUrl": "https://www.facebook.com/groups/830647771162002/",
     "status": "official",
-    "access": "public"
+    "access": "public",
+    "verified": false,
+    "verifiedAt": null
   },
   {
     "id": "aliai",
@@ -33,7 +35,9 @@
     "gpsSource": "OpenStreetMap via Mapcarta",
     "gpsConfidence": "high",
     "status": "official",
-    "access": "public"
+    "access": "public",
+    "verified": false,
+    "verifiedAt": null
   },
   {
     "id": "zemaitija",
@@ -52,7 +56,9 @@
     "gpsSource": "Rekvizitai + MXMap listing",
     "gpsConfidence": "high",
     "status": "official",
-    "access": "public"
+    "access": "public",
+    "verified": false,
+    "verifiedAt": null
   },
   {
     "id": "babtai",
@@ -67,7 +73,9 @@
     "gpsSource": "Waze + MXMap listing",
     "gpsConfidence": "medium",
     "status": "official",
-    "access": "public"
+    "access": "public",
+    "verified": false,
+    "verifiedAt": null
   },
   {
     "id": "berciunai",
@@ -84,7 +92,9 @@
     },
     "facebookUrl": null,
     "status": "official",
-    "access": "public"
+    "access": "public",
+    "verified": false,
+    "verifiedAt": null
   },
   {
     "id": "birzai",
@@ -101,7 +111,9 @@
     },
     "facebookUrl": "https://www.facebook.com/birzmoto",
     "status": "official",
-    "access": "public"
+    "access": "public",
+    "verified": false,
+    "verifiedAt": null
   },
   {
     "id": "dubysa",
@@ -120,7 +132,9 @@
     "gpsSource": "OpenStreetMap via Mapcarta",
     "gpsConfidence": "high",
     "status": "official",
-    "access": "public"
+    "access": "public",
+    "verified": false,
+    "verifiedAt": null
   },
   {
     "id": "jiestrakis",
@@ -133,7 +147,9 @@
     "contact": null,
     "facebookUrl": null,
     "status": "official",
-    "access": "public"
+    "access": "public",
+    "verified": false,
+    "verifiedAt": null
   },
   {
     "id": "kalvarija",
@@ -150,7 +166,9 @@
     },
     "facebookUrl": null,
     "status": "official",
-    "access": "public"
+    "access": "public",
+    "verified": false,
+    "verifiedAt": null
   },
   {
     "id": "kampai",
@@ -169,7 +187,9 @@
     "gpsSource": "MXMap listing",
     "gpsConfidence": "medium",
     "status": "official",
-    "access": "public"
+    "access": "public",
+    "verified": false,
+    "verifiedAt": null
   },
   {
     "id": "kvedarna",
@@ -188,7 +208,9 @@
     "gpsSource": "Cybo + MXMap listing",
     "gpsConfidence": "medium",
     "status": "official",
-    "access": "public"
+    "access": "public",
+    "verified": false,
+    "verifiedAt": null
   },
   {
     "id": "manto",
@@ -207,7 +229,9 @@
     "gpsSource": "Company registry / listing",
     "gpsConfidence": "medium",
     "status": "official",
-    "access": "public"
+    "access": "public",
+    "verified": false,
+    "verifiedAt": null
   },
   {
     "id": "mickunai",
@@ -226,7 +250,9 @@
     "gpsSource": "Official supplementary regulations PDF",
     "gpsConfidence": "high",
     "status": "official",
-    "access": "public"
+    "access": "public",
+    "verified": false,
+    "verifiedAt": null
   },
   {
     "id": "motoroki",
@@ -245,7 +271,9 @@
     "gpsSource": "OpenStreetMap via Mapcarta",
     "gpsConfidence": "high",
     "status": "official",
-    "access": "public"
+    "access": "public",
+    "verified": false,
+    "verifiedAt": null
   },
   {
     "id": "panevezys",
@@ -264,7 +292,9 @@
     "gpsSource": "Panevėžys NOW / directory listing",
     "gpsConfidence": "medium",
     "status": "official",
-    "access": "public"
+    "access": "public",
+    "verified": false,
+    "verifiedAt": null
   },
   {
     "id": "petrašiūnai",
@@ -283,7 +313,9 @@
     "gpsSource": "OpenStreetMap via Mapcarta",
     "gpsConfidence": "high",
     "status": "official",
-    "access": "public"
+    "access": "public",
+    "verified": false,
+    "verifiedAt": null
   },
   {
     "id": "rietavas",
@@ -300,20 +332,24 @@
     },
     "facebookUrl": "https://www.facebook.com/groups/2788459718046229/",
     "status": "official",
-    "access": "public"
+    "access": "public",
+    "verified": false,
+    "verifiedAt": null
   },
   {
     "id": "saduniskes",
     "name": "Sadūniškių motoparkas",
     "locationName": "Vilniaus r.",
     "address": "Rugių g 22, 13145, Sadūniškės, Vilniaus r. sav.",
-    "lat": 54.646663,
-    "lng": 25.549186,
+    "lat": 54.645972,
+    "lng": 25.549889,
     "trackCategory": null,
     "contact": null,
     "facebookUrl": "https://www.facebook.com/groups/358414681839538/",
     "status": "official",
-    "access": "public"
+    "access": "public",
+    "verified": true,
+    "verifiedAt": "2026-03-29"
   },
   {
     "id": "vidugiriai",
@@ -330,7 +366,9 @@
     },
     "facebookUrl": "https://www.facebook.com/groups/967948160945026/",
     "status": "official",
-    "access": "public"
+    "access": "public",
+    "verified": false,
+    "verifiedAt": null
   },
   {
     "id": "zokniai",
@@ -347,7 +385,9 @@
     },
     "facebookUrl": "https://www.facebook.com/groups/1865805743704790/",
     "status": "official",
-    "access": "public"
+    "access": "public",
+    "verified": false,
+    "verifiedAt": null
   },
   {
     "id": "crazy-ferma",
@@ -362,7 +402,9 @@
     "surface": "sand",
     "description": "Known local riding spot",
     "facebookUrl": null,
-    "notes": "Exact coordinates need verification"
+    "notes": "Exact coordinates need verification",
+    "verified": false,
+    "verifiedAt": null
   },
   {
     "id": "medeina-track",
@@ -377,7 +419,9 @@
     "surface": "mixed",
     "description": "Small local riding area",
     "facebookUrl": null,
-    "notes": "Likely informal spot"
+    "notes": "Likely informal spot",
+    "verified": false,
+    "verifiedAt": null
   },
   {
     "id": "perkuno-trasa",
@@ -394,7 +438,9 @@
     "facebookUrl": null,
     "gpsSource": "Official Perkūno trasa site",
     "gpsConfidence": "medium",
-    "notes": "Verify exact location and operator"
+    "notes": "Verify exact location and operator",
+    "verified": false,
+    "verifiedAt": null
   },
   {
     "id": "grigiskes-mx",
@@ -409,7 +455,9 @@
     "surface": "sand",
     "description": "Local sand riding area",
     "facebookUrl": null,
-    "notes": "Check access rules"
+    "notes": "Check access rules",
+    "verified": false,
+    "verifiedAt": null
   },
   {
     "id": "pagiriai-kolia",
@@ -424,7 +472,9 @@
     "surface": "sand",
     "description": "Private local track",
     "facebookUrl": null,
-    "notes": "Permission required"
+    "notes": "Permission required",
+    "verified": false,
+    "verifiedAt": null
   },
   {
     "id": "ezero-pagiriai",
@@ -439,7 +489,9 @@
     "surface": "sand",
     "description": "Small informal track near lake",
     "facebookUrl": null,
-    "notes": "Unstructured spot"
+    "notes": "Unstructured spot",
+    "verified": false,
+    "verifiedAt": null
   },
   {
     "id": "epark-mx-kaunas",
@@ -456,7 +508,9 @@
     "facebookUrl": "https://www.facebook.com/eparkmx",
     "gpsSource": "MXMap listing",
     "gpsConfidence": "medium",
-    "notes": "Well-maintained track, events and training"
+    "notes": "Well-maintained track, events and training",
+    "verified": false,
+    "verifiedAt": null
   },
   {
     "id": "example-closed-track",
@@ -471,6 +525,8 @@
     "surface": "unknown",
     "description": "Officially closed but still used by riders",
     "facebookUrl": null,
-    "notes": "Use at your own risk"
+    "notes": "Use at your own risk",
+    "verified": false,
+    "verifiedAt": null
   }
 ]

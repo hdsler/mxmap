@@ -170,6 +170,9 @@
       lat: track.lat,
       lng: track.lng,
       distanceKm: null,
+      verified: track.verified === true,
+      verifiedAt:
+        typeof track.verifiedAt === "string" && track.verifiedAt.trim() ? track.verifiedAt.trim() : null,
       facebookUrl: typeof track.facebookUrl === "string" && track.facebookUrl.trim() ? track.facebookUrl.trim() : null,
       contactName:
         track.contact && typeof track.contact.name === "string" && track.contact.name.trim()
@@ -208,6 +211,13 @@
       distance.className = "track-list-distance";
       distance.setAttribute("data-testid", `track-distance-${track.id}`);
       distance.textContent = getDistanceLabel(track);
+
+      const verification = document.createElement("span");
+      verification.className = `track-list-verification ${track.verified ? "is-verified" : "is-unverified"}`;
+      verification.setAttribute("data-testid", `track-verification-${track.id}`);
+      verification.textContent = getVerificationLabel(track);
+
+      meta.appendChild(verification);
 
       if (distance.textContent) {
         meta.appendChild(distance);
@@ -318,7 +328,8 @@
   }
 
   function createMarkerHtml(track, selected) {
-    const className = selected ? "track-marker is-selected" : "track-marker";
+    const verificationClass = track.verified ? "is-verified" : "is-unverified";
+    const className = selected ? `track-marker ${verificationClass} is-selected` : `track-marker ${verificationClass}`;
     return `<button class="${className}" type="button" aria-label="${escapeHtml(
       track.name
     )}" data-testid="marker-${escapeHtml(track.id)}"></button>`;
@@ -418,6 +429,10 @@
       ? `<p class="detail-value" data-testid="track-contact-name">${escapeHtml(track.contactName)}</p>`
       : `<p class="detail-value" data-testid="track-contact-name">Kontaktinio asmens nėra</p>`;
 
+    const verificationDateMarkup = track.verifiedAt
+      ? ` (${escapeHtml(track.verifiedAt)})`
+      : "";
+
     elements.details.innerHTML = `
       <div class="actions-row actions-row-top">
         ${
@@ -443,6 +458,12 @@
       <div class="detail-group">
         <span class="detail-label">Adresas</span>
         <p class="detail-value" data-testid="track-address">${escapeHtml(track.address)}</p>
+      </div>
+      <div class="detail-group">
+        <span class="detail-label">Patvirtinimas</span>
+        <p class="detail-value" data-testid="track-verification-status">
+          ${track.verified ? `Patvirtinta${verificationDateMarkup}` : "Nepatvirtinta"}
+        </p>
       </div>
       <div class="detail-group">
         <span class="detail-label">Kontaktinis asmuo</span>
@@ -492,6 +513,14 @@
     }
 
     return "";
+  }
+
+  function getVerificationLabel(track) {
+    if (track.verified) {
+      return track.verifiedAt ? `Patvirtinta ${track.verifiedAt}` : "Patvirtinta";
+    }
+
+    return "Nepatvirtinta";
   }
 
   function sortTracks(tracks) {

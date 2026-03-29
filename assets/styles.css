@@ -12,6 +12,10 @@
   --primary-deep: #1657b7;
   --secondary: #2a8b7b;
   --secondary-deep: #1f6d61;
+  --verified: #2b8a57;
+  --verified-glow: rgba(43, 138, 87, 0.22);
+  --unverified: #cf3f36;
+  --unverified-glow: rgba(207, 63, 54, 0.2);
   --facebook: #1877f2;
   --shadow-soft: 0 18px 42px rgba(25, 42, 70, 0.08);
   --shadow-card: 0 8px 22px rgba(25, 42, 70, 0.06);
@@ -51,6 +55,18 @@ input {
   max-width: 1520px;
   margin: 0 auto;
   padding: 12px;
+}
+
+.verification-disclaimer {
+  margin-bottom: 12px;
+  padding: 12px 14px;
+  border: 1px solid rgba(207, 63, 54, 0.16);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(180deg, #fff4f3 0%, #fffaf9 100%);
+  color: #8d3029;
+  font-size: 0.92rem;
+  font-weight: 700;
+  box-shadow: var(--shadow-card);
 }
 
 .layout {
@@ -269,6 +285,7 @@ input {
 }
 
 .track-list-distance,
+.track-list-verification,
 .track-list-facebook {
   display: inline-flex;
   align-items: center;
@@ -283,6 +300,16 @@ input {
 .track-list-distance {
   background: rgba(42, 139, 123, 0.12);
   color: var(--secondary-deep);
+}
+
+.track-list-verification.is-verified {
+  background: rgba(43, 138, 87, 0.12);
+  color: #1e6d44;
+}
+
+.track-list-verification.is-unverified {
+  background: rgba(207, 63, 54, 0.12);
+  color: #a5332d;
 }
 
 .track-list-facebook {
@@ -478,9 +505,18 @@ input {
   transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
 }
 
+.track-marker.is-verified {
+  background: var(--verified);
+  box-shadow: 0 0 0 4px var(--verified-glow);
+}
+
+.track-marker.is-unverified {
+  background: var(--unverified);
+  box-shadow: 0 0 0 4px var(--unverified-glow);
+}
+
 .track-marker.is-selected {
-  background: var(--secondary);
-  box-shadow: 0 0 0 6px rgba(42, 139, 123, 0.22);
+  box-shadow: 0 0 0 6px rgba(18, 32, 51, 0.16);
   transform: scale(1.1);
 }
 
