@@ -65,17 +65,17 @@
     "name": "Babtų motokroso trasa",
     "locationName": "Kauno r.",
     "address": "Miško g., Jugintai / Pagynė, Kauno r. sav.",
-    "lat": 55.118992,
-    "lng": 23.795161,
+    "lat": 55.119003,
+    "lng": 23.795105,
     "trackCategory": null,
     "contact": null,
-    "facebookUrl": null,
+    "facebookUrl": "https://www.facebook.com/rymsiukelis123",
     "gpsSource": "Waze + MXMap listing",
     "gpsConfidence": "medium",
     "status": "official",
     "access": "public",
-    "verified": false,
-    "verifiedAt": null
+    "verified": true,
+    "verifiedAt": "2026-03-29"
   },
   {
     "id": "berciunai",
@@ -141,23 +141,23 @@
     "name": "Jiestrakio motokroso trasa",
     "locationName": "Prienų r.",
     "address": "Prienų r., Jiestrakis",
-    "lat": 54.630261,
-    "lng": 23.676458,
+    "lat": 54.630583,
+    "lng": 23.676365,
     "trackCategory": null,
     "contact": null,
-    "facebookUrl": null,
+    "facebookUrl": "https://www.facebook.com/Mazvydas868717163",
     "status": "official",
     "access": "public",
-    "verified": false,
-    "verifiedAt": null
+    "verified": true,
+    "verifiedAt": "2026-03-29"
   },
   {
     "id": "kalvarija",
-    "name": "Kalvarijos motokroso trasa",
+    "name": "Kalvarijos motokroso cross country trasa",
     "locationName": "Marijampolės r.",
     "address": "Kalvarija, Marijampolės r.",
-    "lat": 54.396575,
-    "lng": 23.224573,
+    "lat": 54.39666,
+    "lng": 23.224192,
     "trackCategory": "varžybinė",
     "contact": {
       "name": "Kęstutis Šiupšinskas",
@@ -167,16 +167,16 @@
     "facebookUrl": null,
     "status": "official",
     "access": "public",
-    "verified": false,
-    "verifiedAt": null
+    "verified": true,
+    "verifiedAt": "2026-03-29"
   },
   {
     "id": "kampai",
     "name": "Kampai motokroso trasa",
     "locationName": "Kėdainių r.",
     "address": "58205 Bajėnai II, Kėdainių r.",
-    "lat": 55.171175,
-    "lng": 23.823246,
+    "lat": 55.171199,
+    "lng": 23.8232,
     "trackCategory": null,
     "contact": {
       "name": "Vaidotas Vilimas",
@@ -188,8 +188,8 @@
     "gpsConfidence": "medium",
     "status": "official",
     "access": "public",
-    "verified": false,
-    "verifiedAt": null
+    "verified": true,
+    "verifiedAt": "2026-03-29"
   },
   {
     "id": "kvedarna",
