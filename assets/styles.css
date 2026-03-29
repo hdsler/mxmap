@@ -52,13 +52,14 @@ input {
 }
 
 .app-shell {
+  display: grid;
+  gap: 12px;
   max-width: 1520px;
   margin: 0 auto;
-  padding: 12px;
+  padding: calc(12px + env(safe-area-inset-top, 0px)) 12px 12px;
 }
 
 .verification-disclaimer {
-  margin-bottom: 12px;
   padding: 12px 14px;
   border: 1px solid rgba(207, 63, 54, 0.16);
   border-radius: var(--radius-xl);
@@ -285,7 +286,6 @@ input {
 }
 
 .track-list-distance,
-.track-list-verification,
 .track-list-facebook {
   display: inline-flex;
   align-items: center;
@@ -300,16 +300,6 @@ input {
 .track-list-distance {
   background: rgba(42, 139, 123, 0.12);
   color: var(--secondary-deep);
-}
-
-.track-list-verification.is-verified {
-  background: rgba(43, 138, 87, 0.12);
-  color: #1e6d44;
-}
-
-.track-list-verification.is-unverified {
-  background: rgba(207, 63, 54, 0.12);
-  color: #a5332d;
 }
 
 .track-list-facebook {
@@ -551,12 +541,13 @@ input {
   .app-shell {
     padding: 14px;
     height: 100dvh;
+    grid-template-rows: auto minmax(0, 1fr);
   }
 
   .layout {
     grid-template-columns: minmax(0, 1.55fr) minmax(340px, 410px);
     align-items: stretch;
-    height: calc(100dvh - 28px);
+    min-height: 0;
   }
 
   .map-panel {
