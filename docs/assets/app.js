@@ -5,6 +5,8 @@
   const APPLE_DEVICE_PATTERN = /iPhone|iPad|iPod|Macintosh/i;
 
   const elements = {
+    disclaimer: document.querySelector("#verification-disclaimer"),
+    disclaimerDismiss: document.querySelector("#verification-disclaimer-dismiss"),
     map: document.querySelector("#map"),
     list: document.querySelector("#track-list"),
     listPanel: document.querySelector("#track-list-panel"),
@@ -41,6 +43,7 @@
   });
 
   async function init() {
+    setupDisclaimerDismiss();
     setupListToggle();
     setupLocationButton();
     setupLocationDismiss();
@@ -62,6 +65,28 @@
     hideStatus();
     renderTrackList();
     renderMarkers();
+    refreshMapLayout();
+  }
+
+  function setupDisclaimerDismiss() {
+    if (!elements.disclaimer || !elements.disclaimerDismiss) {
+      return;
+    }
+
+    elements.disclaimerDismiss.addEventListener("click", () => {
+      elements.disclaimer.hidden = true;
+      refreshMapLayout();
+    });
+  }
+
+  function refreshMapLayout() {
+    if (!state.map) {
+      return;
+    }
+
+    window.requestAnimationFrame(() => {
+      state.map.invalidateSize(false);
+    });
   }
 
   function setupListToggle() {

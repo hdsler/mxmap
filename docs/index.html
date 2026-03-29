@@ -9,9 +9,23 @@
   </head>
   <body>
     <div class="app-shell">
-      <section class="verification-disclaimer" aria-label="Vietų patvirtinimo informacija">
-        Svetainėje pateikiamos tik trasų koordinatės. Informacija apie leidimą važiuoti neteikiama, todėl dėl
-        leidimo kreipkitės į trasos savininką. Dėl pataisymų ir papildymų kreiptis: mxmaplt@gmail.com.
+      <section
+        id="verification-disclaimer"
+        class="verification-disclaimer"
+        aria-label="Vietų patvirtinimo informacija"
+      >
+        <p class="verification-disclaimer-text">
+          Svetainėje pateikiamos tik trasų koordinatės. Informacija apie leidimą važiuoti neteikiama, todėl dėl
+          leidimo kreipkitės į trasos savininką. Dėl pataisymų ir papildymų kreiptis: mxmaplt@gmail.com.
+        </p>
+        <button
+          id="verification-disclaimer-dismiss"
+          class="verification-disclaimer-dismiss"
+          type="button"
+          aria-label="Uždaryti perspėjimą"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
       </section>
       <main class="layout">
         <section class="map-panel" aria-label="Žemėlapis">

@@ -60,6 +60,10 @@ input {
 }
 
 .verification-disclaimer {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 10px;
   padding: 12px 14px;
   border: 1px solid rgba(207, 63, 54, 0.16);
   border-radius: var(--radius-xl);
@@ -68,6 +72,20 @@ input {
   font-size: 0.92rem;
   font-weight: 700;
   box-shadow: var(--shadow-card);
+}
+
+.verification-disclaimer[hidden] {
+  display: none;
+}
+
+.verification-disclaimer-text {
+  margin: 0;
+  min-width: 0;
+}
+
+.verification-disclaimer-dismiss {
+  flex: 0 0 auto;
+  margin: -2px -2px 0 0;
 }
 
 .layout {
@@ -117,7 +135,8 @@ input {
 
 .status-close,
 .location-dismiss,
-.map-chooser-close {
+.map-chooser-close,
+.verification-disclaimer-dismiss {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -138,7 +157,9 @@ input {
 .location-dismiss:hover,
 .location-dismiss:focus-visible,
 .map-chooser-close:hover,
-.map-chooser-close:focus-visible {
+.map-chooser-close:focus-visible,
+.verification-disclaimer-dismiss:hover,
+.verification-disclaimer-dismiss:focus-visible {
   background: rgba(18, 32, 51, 0.14);
   color: var(--text);
   transform: translateY(-1px);
@@ -163,6 +184,11 @@ input {
   align-items: center;
   gap: 8px;
   min-width: 0;
+  min-height: 44px;
+  padding: 6px 6px 6px 14px;
+  border: 1px solid rgba(42, 139, 123, 0.16);
+  border-radius: 999px;
+  background: rgba(42, 139, 123, 0.12);
 }
 
 .location-action[hidden] {
@@ -183,21 +209,32 @@ input {
 }
 
 .location-button {
-  background: rgba(42, 139, 123, 0.12);
-  border-color: rgba(42, 139, 123, 0.16);
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 0;
+  border-color: transparent;
+  background: transparent;
   color: var(--secondary-deep);
+}
+
+.location-action:hover,
+.location-action:focus-within {
+  background: rgba(42, 139, 123, 0.18);
 }
 
 .location-button:hover,
 .location-button:focus-visible {
-  background: rgba(42, 139, 123, 0.18);
-  transform: translateY(-1px);
+  background: transparent;
   outline: none;
 }
 
 .location-button:disabled {
   opacity: 0.72;
   cursor: wait;
+}
+
+.location-dismiss {
+  flex: 0 0 auto;
 }
 
 .list-toggle {
