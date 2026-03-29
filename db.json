@@ -23,21 +23,21 @@
     "name": "Alių motokroso trasa",
     "locationName": "Aliai, Utenos r.",
     "address": "Aliai, Utenos sen., Utenos r.",
-    "lat": 55.48202,
-    "lng": 25.72518,
+    "lat": 55.482216,
+    "lng": 25.726719,
     "trackCategory": "čempionatinė",
     "contact": {
       "name": "Nerijus Šeduikis",
       "phone": "+37068626320",
       "email": "nerijus@porteris.com"
     },
-    "facebookUrl": null,
+    "facebookUrl": "https://www.facebook.com/profile.php?id=61566002278029",
     "gpsSource": "OpenStreetMap via Mapcarta",
     "gpsConfidence": "high",
     "status": "official",
     "access": "public",
-    "verified": false,
-    "verifiedAt": null
+    "verified": true,
+    "verifiedAt": "2026-03-29"
   },
   {
     "id": "zemaitija",
@@ -82,27 +82,27 @@
     "name": "Berčiūnų motokroso trasa",
     "locationName": "Panevėžio r.",
     "address": "Berčiūnai, Panevėžio r.",
-    "lat": 55.728327,
-    "lng": 24.226733,
+    "lat": 55.728321,
+    "lng": 24.226737,
     "trackCategory": "varžybinė",
     "contact": {
       "name": "Žygimantas Bartusevičius",
       "phone": "+37065640436",
       "email": "zygis78@gmail.com"
     },
-    "facebookUrl": null,
+    "facebookUrl": "https://www.facebook.com/groups/675674992609048/?locale=lt_LT",
     "status": "official",
     "access": "public",
-    "verified": false,
-    "verifiedAt": null
+    "verified": true,
+    "verifiedAt": "2026-03-29"
   },
   {
     "id": "birzai",
     "name": "Biržų motokroso trasa",
     "locationName": "Biržai",
     "address": "Perkūno aklg. 2, Biržai",
-    "lat": 56.172866,
-    "lng": 24.766779,
+    "lat": 56.173,
+    "lng": 24.7665,
     "trackCategory": "čempionatinė",
     "contact": {
       "name": "Tadas Špokas",
@@ -112,8 +112,8 @@
     "facebookUrl": "https://www.facebook.com/birzmoto",
     "status": "official",
     "access": "public",
-    "verified": false,
-    "verifiedAt": null
+    "verified": true,
+    "verifiedAt": "2026-03-30"
   },
   {
     "id": "dubysa",
@@ -217,8 +217,8 @@
     "name": "Mickūnai MX parkas",
     "locationName": "Anykščių r.",
     "address": "Mickūnų k., Anykščių r.",
-    "lat": 55.635327,
-    "lng": 25.288851,
+    "lat": 55.635101,
+    "lng": 25.288664,
     "trackCategory": "čempionatinė",
     "contact": {
       "name": "Nerijus Jasiukonis",
@@ -230,37 +230,37 @@
     "gpsConfidence": "high",
     "status": "official",
     "access": "public",
-    "verified": false,
-    "verifiedAt": null
+    "verified": true,
+    "verifiedAt": "2026-03-29"
   },
   {
     "id": "motoroki",
     "name": "Moto-Roki motociklų kroso trasa",
     "locationName": "Rokiškio r.",
     "address": "3623, 42341 Zyboliai, Rokiškio r.",
-    "lat": 55.97409,
-    "lng": 25.53015,
+    "lat": 55.974765,
+    "lng": 25.528633,
     "trackCategory": "čempionatinė",
     "contact": {
       "name": "Mantas Kišūnas",
       "phone": "+3706247047",
       "email": null
     },
-    "facebookUrl": "https://www.facebook.com/groups/552789962186913",
+    "facebookUrl": "https://www.facebook.com/motoroki.motocross.7",
     "gpsSource": "OpenStreetMap via Mapcarta",
     "gpsConfidence": "high",
     "status": "official",
     "access": "public",
-    "verified": false,
-    "verifiedAt": null
+    "verified": true,
+    "verifiedAt": "2026-03-29"
   },
   {
     "id": "panevezys",
     "name": "Panevėžio motokroso trasa",
     "locationName": "Panevėžys",
     "address": "J. Janonio g. 30F, Panevėžys, 35101",
-    "lat": 55.734868,
-    "lng": 24.30149,
+    "lat": 55.734998,
+    "lng": 24.30116,
     "trackCategory": "varžybinė",
     "contact": {
       "name": "Almantas Stepukas",
@@ -272,16 +272,16 @@
     "gpsConfidence": "medium",
     "status": "official",
     "access": "public",
-    "verified": false,
-    "verifiedAt": null
+    "verified": true,
+    "verifiedAt": "2026-03-29"
   },
   {
     "id": "petrašiūnai",
     "name": "Petrašiūnų motokroso trasa",
     "locationName": "Pakruojo r.",
     "address": "Petrašiūnai, Pakruojo sen., Pakruojo r.",
-    "lat": 56.01742,
-    "lng": 23.92215,
+    "lat": 56.01713,
+    "lng": 23.920774,
     "trackCategory": "čempionatinė",
     "contact": {
       "name": "Egidijus Šiaučiūnas",
@@ -293,8 +293,8 @@
     "gpsConfidence": "high",
     "status": "official",
     "access": "public",
-    "verified": false,
-    "verifiedAt": null
+    "verified": true,
+    "verifiedAt": "2026-03-30"
   },
   {
     "id": "rietavas",
@@ -365,8 +365,8 @@
     "name": "Vidugirių motokroso trasa",
     "locationName": "Anykščių r.",
     "address": "Rukiškis, Anykščių r.",
-    "lat": 55.648311,
-    "lng": 24.733601,
+    "lat": 55.648505,
+    "lng": 24.733451,
     "trackCategory": null,
     "contact": {
       "name": "Audrius Razminas",
@@ -376,27 +376,27 @@
     "facebookUrl": "https://www.facebook.com/groups/967948160945026/",
     "status": "official",
     "access": "public",
-    "verified": false,
-    "verifiedAt": null
+    "verified": true,
+    "verifiedAt": "2026-03-29"
   },
   {
     "id": "zokniai",
     "name": "Zoknių motokroso trasa",
     "locationName": "Šiauliai",
     "address": "Pročiūnų g 96, Šiauliai",
-    "lat": 55.886887,
-    "lng": 23.416377,
+    "lat": 55.886897,
+    "lng": 23.415666,
     "trackCategory": null,
     "contact": {
       "name": "Rytis Garbačiauskas",
       "phone": null,
       "email": null
     },
-    "facebookUrl": "https://www.facebook.com/groups/1865805743704790/",
+    "facebookUrl": "https://www.facebook.com/groups/1865805743704790?locale=lt_LT",
     "status": "official",
     "access": "public",
-    "verified": false,
-    "verifiedAt": null
+    "verified": true,
+    "verifiedAt": "2026-03-30"
   },
   {
     "id": "crazy-ferma",
