@@ -85,9 +85,16 @@ input {
 
 .verification-disclaimer-dismiss {
   flex: 0 0 auto;
+  position: relative;
+  z-index: 1;
   margin: -2px -2px 0 0;
   min-width: 40px;
   min-height: 40px;
+  cursor: pointer;
+  pointer-events: auto;
+  appearance: none;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
 }
 

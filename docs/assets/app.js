@@ -76,6 +76,7 @@
     const dismissDisclaimer = (event) => {
       if (event) {
         event.preventDefault();
+        event.stopPropagation();
       }
 
       elements.disclaimer.hidden = true;
@@ -83,7 +84,8 @@
     };
 
     elements.disclaimerDismiss.addEventListener("click", dismissDisclaimer);
-    elements.disclaimerDismiss.addEventListener("touchend", dismissDisclaimer, { passive: false });
+    elements.disclaimerDismiss.addEventListener("pointerup", dismissDisclaimer);
+    elements.disclaimerDismiss.addEventListener("touchstart", dismissDisclaimer, { passive: false });
   }
 
   function refreshMapLayout() {
