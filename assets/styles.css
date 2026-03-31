@@ -360,6 +360,24 @@ input {
   gap: 8px;
 }
 
+.track-cover {
+  margin: 0 0 4px;
+  overflow: hidden;
+  border-radius: calc(var(--radius-lg) - 2px);
+  border: 1px solid rgba(71, 85, 105, 0.12);
+  background:
+    linear-gradient(180deg, rgba(18, 32, 51, 0.02), rgba(18, 32, 51, 0.08)),
+    var(--surface-soft);
+  box-shadow: var(--shadow-card);
+}
+
+.track-cover-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  object-fit: cover;
+}
+
 .placeholder {
   margin: 0;
   color: var(--muted);

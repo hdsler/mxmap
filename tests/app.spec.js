@@ -2,7 +2,8 @@ const { test, expect } = require("@playwright/test");
 const db = require("../db.json");
 
 const fullTrack = db.find((track) => track.id === "aleksandrijos");
-const missingTrack = db.find((track) => track.id === "babtai");
+const missingContactTrack = db.find((track) => track.id === "babtai");
+const missingFacebookTrack = db.find((track) => track.id === "kalvarija");
 const testLocation = { latitude: 54.6872, longitude: 25.2797 };
 const nearestTrack = [...db]
   .map((track) => ({
@@ -36,6 +37,7 @@ test("list selection updates details and opens map chooser on desktop and mobile
 
   await page.getByTestId(`track-item-${fullTrack.id}`).click();
 
+  await expect(page.getByTestId("track-cover-image")).toHaveAttribute("src", fullTrack.coverImage);
   await expect(page.getByTestId("track-name")).toHaveText(fullTrack.name);
   await expect(page.getByTestId("track-address")).toHaveText(fullTrack.address);
   await expect(page.getByTestId("track-contact-name")).toHaveText(fullTrack.contact.name);
@@ -123,10 +125,16 @@ test("fallback text is shown for missing contact and facebook data", async ({ pa
     await page.getByTestId("mobile-list-toggle").click();
   }
 
-  await page.getByTestId(`track-item-${missingTrack.id}`).click();
+  await page.getByTestId(`track-item-${missingContactTrack.id}`).click();
 
+  await expect(page.getByTestId("track-cover")).toHaveCount(0);
   await expect(page.getByTestId("track-contact-name")).toHaveText("Kontaktinio asmens nėra");
   await expect(page.getByTestId("track-phone")).toHaveText("Telefono numerio nėra");
+  await expect(page.getByTestId("track-facebook-link")).toHaveAttribute("href", missingContactTrack.facebookUrl);
+
+  await page.getByTestId(`track-item-${missingFacebookTrack.id}`).click();
+
+  await expect(page.getByTestId("track-cover")).toHaveCount(0);
   await expect(page.getByTestId("track-facebook-link")).toHaveText("Facebook nuorodos nėra");
 });
 

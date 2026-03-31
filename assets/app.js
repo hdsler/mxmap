@@ -201,6 +201,7 @@
       id: track.id,
       name: track.name,
       address: typeof track.address === "string" && track.address.trim() ? track.address.trim() : "Adreso nėra",
+      coverImage: typeof track.coverImage === "string" && track.coverImage.trim() ? track.coverImage.trim() : null,
       lat: track.lat,
       lng: track.lng,
       distanceKm: null,
@@ -440,12 +441,6 @@
   }
 
   function renderTrackDetails(track) {
-    const facebookMarkup = track.facebookUrl
-      ? `<a class="facebook-button" data-testid="track-facebook-link" href="${escapeAttribute(
-          track.facebookUrl
-        )}" target="_blank" rel="noreferrer">Atidaryti grupę</a>`
-      : `<p class="detail-value" data-testid="track-facebook-link">Facebook nuorodos nėra</p>`;
-
     const phoneMarkup = track.contactPhone
       ? `<a class="detail-link" data-testid="track-phone" href="tel:${escapeAttribute(track.contactPhone)}">${escapeHtml(
           track.contactPhone
@@ -456,7 +451,22 @@
       ? `<p class="detail-value" data-testid="track-contact-name">${escapeHtml(track.contactName)}</p>`
       : `<p class="detail-value" data-testid="track-contact-name">Kontaktinio asmens nėra</p>`;
 
+    const coverImageMarkup = track.coverImage
+      ? `
+      <figure class="track-cover" data-testid="track-cover">
+        <img
+          class="track-cover-image"
+          data-testid="track-cover-image"
+          src="${escapeAttribute(track.coverImage)}"
+          alt="${escapeAttribute(`Trasos ${track.name} nuotrauka`)}"
+          loading="lazy"
+          decoding="async"
+        />
+      </figure>`
+      : "";
+
     elements.details.innerHTML = `
+      ${coverImageMarkup}
       <div class="actions-row actions-row-top">
         ${
           track.facebookUrl

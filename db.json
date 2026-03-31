@@ -12,6 +12,7 @@
       "phone": "+37068685100",
       "email": "sauliaimx@gmail.com"
     },
+    "coverImage": "./assets/track-images/facebook/aleksandrijos.jpg",
     "facebookUrl": "https://www.facebook.com/groups/830647771162002",
     "status": "official",
     "access": "public",
@@ -37,7 +38,8 @@
     "status": "official",
     "access": "public",
     "verified": true,
-    "verifiedAt": "2026-03-29"
+    "verifiedAt": "2026-03-29",
+    "coverImage": "./assets/track-images/facebook/aliai.png"
   },
   {
     "id": "zemaitija",
@@ -58,7 +60,8 @@
     "status": "official",
     "access": "public",
     "verified": true,
-    "verifiedAt": "2026-03-30"
+    "verifiedAt": "2026-03-30",
+    "coverImage": "./assets/track-images/facebook/zemaitija.jpg"
   },
   {
     "id": "babtai",
@@ -75,7 +78,8 @@
     "status": "official",
     "access": "public",
     "verified": true,
-    "verifiedAt": "2026-03-29"
+    "verifiedAt": "2026-03-29",
+    "coverImage": "./assets/track-images/facebook/babtai.jpg"
   },
   {
     "id": "berciunai",
@@ -94,7 +98,8 @@
     "status": "official",
     "access": "public",
     "verified": true,
-    "verifiedAt": "2026-03-29"
+    "verifiedAt": "2026-03-29",
+    "coverImage": "./assets/track-images/facebook/berciunai.jpg"
   },
   {
     "id": "birzai",
@@ -113,7 +118,8 @@
     "status": "official",
     "access": "public",
     "verified": true,
-    "verifiedAt": "2026-03-30"
+    "verifiedAt": "2026-03-30",
+    "coverImage": "./assets/track-images/facebook/birzai.jpg"
   },
   {
     "id": "dubysa",
@@ -134,7 +140,8 @@
     "status": "official",
     "access": "public",
     "verified": true,
-    "verifiedAt": "2026-03-30"
+    "verifiedAt": "2026-03-30",
+    "coverImage": "./assets/track-images/facebook/dubysa.jpg"
   },
   {
     "id": "jiestrakis",
@@ -149,7 +156,8 @@
     "status": "official",
     "access": "public",
     "verified": true,
-    "verifiedAt": "2026-03-29"
+    "verifiedAt": "2026-03-29",
+    "coverImage": "./assets/track-images/facebook/jiestrakis.jpg"
   },
   {
     "id": "kalvarija",
@@ -189,7 +197,8 @@
     "status": "official",
     "access": "public",
     "verified": true,
-    "verifiedAt": "2026-03-29"
+    "verifiedAt": "2026-03-29",
+    "coverImage": "./assets/track-images/facebook/kampai.jpg"
   },
   {
     "id": "kvedarna",
@@ -210,7 +219,8 @@
     "status": "official",
     "access": "public",
     "verified": true,
-    "verifiedAt": "2026-03-30"
+    "verifiedAt": "2026-03-30",
+    "coverImage": "./assets/track-images/facebook/kvedarna.jpg"
   },
   {
     "id": "mickunai",
@@ -231,7 +241,8 @@
     "status": "official",
     "access": "public",
     "verified": true,
-    "verifiedAt": "2026-03-29"
+    "verifiedAt": "2026-03-29",
+    "coverImage": "./assets/track-images/facebook/mickunai.jpg"
   },
   {
     "id": "motoroki",
@@ -252,7 +263,8 @@
     "status": "official",
     "access": "public",
     "verified": true,
-    "verifiedAt": "2026-03-29"
+    "verifiedAt": "2026-03-29",
+    "coverImage": "./assets/track-images/facebook/motoroki.jpg"
   },
   {
     "id": "panevezys",
@@ -313,7 +325,8 @@
     "status": "official",
     "access": "public",
     "verified": true,
-    "verifiedAt": "2026-03-30"
+    "verifiedAt": "2026-03-30",
+    "coverImage": "./assets/track-images/facebook/rietavas.jpg"
   },
   {
     "id": "saduniskes",
@@ -328,7 +341,8 @@
     "status": "official",
     "access": "public",
     "verified": true,
-    "verifiedAt": "2026-03-29"
+    "verifiedAt": "2026-03-29",
+    "coverImage": "./assets/track-images/facebook/saduniskes.jpg"
   },
   {
     "id": "motoboris",
@@ -343,7 +357,8 @@
     "surface": "unknown",
     "facebookUrl": "https://www.facebook.com/profile.php?id=100022088953619",
     "verified": true,
-    "verifiedAt": "2026-03-30"
+    "verifiedAt": "2026-03-30",
+    "coverImage": "./assets/track-images/facebook/motoboris.jpg"
   },
   {
     "id": "sandbox",
@@ -358,7 +373,8 @@
     "surface": "sand",
     "facebookUrl": "https://www.facebook.com/automotoparkas",
     "verified": true,
-    "verifiedAt": "2026-03-29"
+    "verifiedAt": "2026-03-29",
+    "coverImage": "./assets/track-images/facebook/sandbox.png"
   },
   {
     "id": "auto-moto-parkas",
@@ -373,7 +389,8 @@
     "surface": "unknown",
     "facebookUrl": "https://www.facebook.com/automotoparkas",
     "verified": true,
-    "verifiedAt": "2026-03-29"
+    "verifiedAt": "2026-03-29",
+    "coverImage": "./assets/track-images/facebook/auto-moto-parkas.png"
   },
   {
     "id": "vidugiriai",
@@ -392,7 +409,8 @@
     "status": "official",
     "access": "public",
     "verified": true,
-    "verifiedAt": "2026-03-29"
+    "verifiedAt": "2026-03-29",
+    "coverImage": "./assets/track-images/facebook/vidugiriai.jpg"
   },
   {
     "id": "zokniai",
@@ -411,7 +429,8 @@
     "status": "official",
     "access": "public",
     "verified": true,
-    "verifiedAt": "2026-03-30"
+    "verifiedAt": "2026-03-30",
+    "coverImage": "./assets/track-images/facebook/zokniai.jpg"
   },
   {
     "id": "crazy-ferma",
@@ -428,7 +447,8 @@
     "facebookUrl": "https://www.facebook.com/profile.php?id=100064140097941",
     "notes": "Exact coordinates need verification",
     "verified": true,
-    "verifiedAt": "2026-03-29"
+    "verifiedAt": "2026-03-29",
+    "coverImage": "./assets/track-images/facebook/crazy-ferma.jpg"
   },
   {
     "id": "medeina-track",
@@ -464,7 +484,8 @@
     "gpsConfidence": "medium",
     "notes": "Verify exact location and operator",
     "verified": true,
-    "verifiedAt": "2026-03-29"
+    "verifiedAt": "2026-03-29",
+    "coverImage": "./assets/track-images/facebook/perkuno-trasa.jpg"
   },
   {
     "id": "grigiskes-mx",
@@ -481,7 +502,8 @@
     "facebookUrl": "https://www.facebook.com/grigiskesmx",
     "notes": "Check access rules",
     "verified": true,
-    "verifiedAt": "2026-03-29"
+    "verifiedAt": "2026-03-29",
+    "coverImage": "./assets/track-images/facebook/grigiskes-mx.jpg"
   },
   {
     "id": "pagiriai-kolia",
@@ -547,6 +569,7 @@
     "gpsConfidence": "medium",
     "notes": "Well-maintained track, events and training",
     "verified": true,
-    "verifiedAt": "2026-03-29"
+    "verifiedAt": "2026-03-29",
+    "coverImage": "./assets/track-images/facebook/epark-mx-kaunas.jpg"
   }
 ]
